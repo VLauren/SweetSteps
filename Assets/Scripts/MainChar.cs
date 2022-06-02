@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // TODO
-// - 
+// -  
 // - 
 // - 
 // - 
@@ -12,6 +12,8 @@ using UnityEngine.InputSystem;
 
 public class MainChar : MonoBehaviour
 {
+    public static MainChar Instance { get; private set; }
+
     [SerializeField] float MovementSpeed = 4;
     [SerializeField] float RotationSpeed = 360;
 
@@ -19,9 +21,9 @@ public class MainChar : MonoBehaviour
     protected Vector3 ControlMovement;
     protected Quaternion TargetRotation;
 
-    void Start()
+    void Awake()
     {
-        
+        Instance = this;
     }
 
     void Update()
@@ -32,7 +34,7 @@ public class MainChar : MonoBehaviour
 
         float rCam = Camera.main.transform.eulerAngles.y;
 
-        Debug.Log(ControlMovement);
+        // Debug.Log(ControlMovement);
         // ControlMovement = new Vector3(1, 0, 1) * Time.deltaTime * MovementSpeed;
 
         // Direccion relativa a camara
@@ -44,6 +46,8 @@ public class MainChar : MonoBehaviour
         }
 
         GetComponent<CharacterController>().Move(ControlMovement + new Vector3(0, -Time.deltaTime, 0));
+
+        // TODO mejor gravedad
 
         // ----------------------------------
         var keyboard = Keyboard.current;
