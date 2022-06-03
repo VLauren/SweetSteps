@@ -60,4 +60,8 @@ public class MainChar : MonoBehaviour
         InputDirection = new Vector3(_value.Get<Vector2>().x, 0, _value.Get<Vector2>().y);
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Debug.Log("A: " + hit.collider.name);
+    }
 }
