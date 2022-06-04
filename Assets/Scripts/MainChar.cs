@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 // TODO
 // -  
@@ -48,6 +49,8 @@ public class MainChar : MonoBehaviour
         GetComponent<CharacterController>().Move(ControlMovement + new Vector3(0, -Time.deltaTime, 0));
 
         // TODO mejor gravedad
+        // TODO detectar derrota y recargar
+            // SceneManager.LoadScene(0);
 
         // ----------------------------------
         var keyboard = Keyboard.current;
@@ -58,10 +61,5 @@ public class MainChar : MonoBehaviour
     void OnMove(InputValue _value)
     {
         InputDirection = new Vector3(_value.Get<Vector2>().x, 0, _value.Get<Vector2>().y);
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        // Debug.Log("A: " + hit.collider.name);
     }
 }

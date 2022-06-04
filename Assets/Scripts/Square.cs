@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class Square : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    void Start()
     {
-        print("Enter");
-        // other.transform.Translate(Vector3.down * 0.1f);
-        transform.Translate(Vector3.down * 0.01f);
+        Level.AddSquare(this);
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        print("Exit");
+        StartCoroutine(Press());
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Level.RemoveSquare(this);
         Destroy(gameObject);
     }
 
     IEnumerator Press()
     {
-        HACER QUE BAJE POCO A POCO
-        yield return null;
+        GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(0.2f, 0.2f, 0.2f));
+        GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+
+        Vector3 targetPosition = transform.position + Vector3.down * 0.1f;
+        while(transform.position != targetPosition)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
+            yield return null;
+        }
     }
 }
