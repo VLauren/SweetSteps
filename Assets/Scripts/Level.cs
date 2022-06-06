@@ -26,11 +26,9 @@ public class Level : MonoBehaviour
     {
         Instance.Squares.Remove(_square);
 
+        // Condicion de victoria provisional
         if (Instance.Squares.Count == 0)
-        {
-            Debug.Log("ALL PRESSED");
             SceneManager.LoadScene(0);
-        }
     }
 
     void Update()
