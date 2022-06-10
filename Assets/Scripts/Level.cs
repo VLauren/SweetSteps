@@ -7,6 +7,11 @@ public class Level : MonoBehaviour
 {
     public static Level Instance { get; private set; }
 
+    [Header("Instantiation Prefabs")]
+    public GameObject SquarePrefab;
+    public GameObject LevelStartPrefab;
+    public GameObject LevelEndPrefab;
+
     List<Square> Squares;
 
     void Awake()
@@ -28,11 +33,9 @@ public class Level : MonoBehaviour
 
         // Condicion de victoria provisional
         if (Instance.Squares.Count == 0)
-            SceneManager.LoadScene(0);
-    }
-
-    void Update()
-    {
-
+        {
+            // SceneManager.LoadScene(0);
+            LevelEnd.Instance.OpenExit();
+        }
     }
 }

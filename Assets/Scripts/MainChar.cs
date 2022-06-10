@@ -4,13 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-// TODO
-// -  
-// - 
-// - 
-// - 
-// - 
-
 public class MainChar : MonoBehaviour
 {
     public static MainChar Instance { get; private set; }
