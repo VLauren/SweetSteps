@@ -12,6 +12,11 @@ public class Level : MonoBehaviour
     public GameObject LevelStartPrefab;
     public GameObject LevelEndPrefab;
 
+    [Space()]
+    public bool GenerateRandomLevel;
+    [TextArea(15,20)]
+    public string LevelToSpawn;
+
     List<Square> Squares;
 
     void Awake()
@@ -21,11 +26,30 @@ public class Level : MonoBehaviour
 
     void Start()
     {
-        SpawnLevel(
-            "3x3\n" +
-            "0,0,1\n" +
-            "1,0,1\n" +
-            "1,1,1");
+        // SpawnLevel(
+            // "3x3\n" +
+            // "0,0,1\n" +
+            // "1,0,1\n" +
+            // "1,1,1");
+
+        if(GenerateRandomLevel)
+        {
+            int xSize = Random.Range(1, 10);
+            int ySize = Random.Range(1, 10);
+
+            LevelToSpawn = xSize + "x" + ySize;
+
+            for (int i = 0; i < ySize; i++)
+            {
+                LevelToSpawn += "\n";
+                for (int j = 0; j < xSize; j++)
+                {
+                    LevelToSpawn += (Random.value < 0.5f) ? "1" : "0";
+                }
+            }
+        }
+
+        SpawnLevel(LevelToSpawn);
     }
 
     public static void AddSquare(Square _square)
