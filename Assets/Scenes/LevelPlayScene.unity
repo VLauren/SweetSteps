@@ -155,16 +155,20 @@ MonoBehaviour:
   SquarePrefab: {fileID: 7521123272857963088, guid: 069274e1ce9177244a6d1667958ee884, type: 3}
   LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
   LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
-  GenerateRandomLevel: 1
-  LevelToSpawn: '4x4
+  GenerateRandomLevel: 0
+  LevelToSpawn: '6x6
 
-    1111
+    100001
 
-    0001
+    010010
 
-    1101
+    001100
 
-    1111'
+    001100
+
+    010010
+
+    100001'
 --- !u!4 &510140328
 Transform:
   m_ObjectHideFlags: 0

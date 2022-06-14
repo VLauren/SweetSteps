@@ -81,8 +81,6 @@ public class Level : MonoBehaviour
         int xSize = int.Parse(lines[0].Split('x')[0]);
         int ySize = int.Parse(lines[0].Split('x')[1]);
 
-        Instantiate(LevelStartPrefab, new Vector3(0, 0, -4.5f), Quaternion.identity);
-
         char[,] grid = new char[xSize, ySize];
 
         for (int i = 0; i < ySize; i++)
@@ -103,7 +101,10 @@ public class Level : MonoBehaviour
             }
         }
 
-        // Instantiate(LevelEndPrefab, new Vector3(0, 0, 7.5f), Quaternion.identity);
-        Instantiate(LevelEndPrefab, new Vector3(0, 0, -4.5f + 3f * (ySize + 1)), Quaternion.identity);
+        GameObject levelStart = Instantiate(LevelStartPrefab, new Vector3(-3f + xSize * 1.5f, 0, -4.5f), Quaternion.identity);
+        GameObject levelEnd = Instantiate(LevelEndPrefab, new Vector3(-3f + xSize * 1.5f, 0, -4.5f + 3f * (ySize + 1)), Quaternion.identity);
+
+        levelStart.transform.localScale = new Vector3(3 * xSize - 0.2f, levelStart.transform.localScale.y, levelStart.transform.localScale.z);
+        levelEnd.transform.Find("Floor").localScale = new Vector3(3 * xSize - 0.2f, levelEnd.transform.Find("Floor").localScale.y, levelEnd.transform.Find("Floor").localScale.z);
     }
 }
