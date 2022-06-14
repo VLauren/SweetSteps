@@ -11,10 +11,12 @@ public class MainChar : MonoBehaviour
     [SerializeField] float MovementSpeed = 4;
     [SerializeField] float RotationSpeed = 360;
     [SerializeField] float Gravity = 20;
+    [SerializeField] float JumpStrength = 1;
 
     protected Vector3 InputDirection;
     protected Vector3 ControlMovement;
     protected Quaternion TargetRotation;
+    protected bool JumpPressed;
 
     float VerticalVelocity;
 
@@ -39,7 +41,14 @@ public class MainChar : MonoBehaviour
         }
 
         if (GetComponent<CharacterController>().isGrounded)
+        {
             VerticalVelocity = -1;
+            if (JumpPressed)
+            {
+                VerticalVelocity = JumpStrength;
+                JumpPressed = false;
+            }
+        }
         else
             VerticalVelocity -= Time.deltaTime * Gravity;
 
@@ -58,5 +67,10 @@ public class MainChar : MonoBehaviour
     void OnMove(InputValue _value)
     {
         InputDirection = new Vector3(_value.Get<Vector2>().x, 0, _value.Get<Vector2>().y);
+    }
+
+    void OnJump(InputValue _value)
+    {
+        JumpPressed = true;
     }
 }
