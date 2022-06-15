@@ -18,6 +18,8 @@ public class MainChar : MonoBehaviour
     protected Quaternion TargetRotation;
     protected bool JumpPressed;
 
+    protected Animator Animator;
+
     float VerticalVelocity;
 
     void Awake()
@@ -25,10 +27,17 @@ public class MainChar : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        Animator = transform.Find("Model").GetComponent<Animator>();
+    }
+
     void Update()
     {
         ControlMovement = Vector3.zero;
         ControlMovement = InputDirection * Time.deltaTime * MovementSpeed;
+
+        Animator.SetFloat("MovementSpeed", InputDirection.magnitude);
 
         float rCam = Camera.main.transform.eulerAngles.y;
 
@@ -45,12 +54,18 @@ public class MainChar : MonoBehaviour
             VerticalVelocity = -1;
             if (JumpPressed)
             {
+                Animator.SetTrigger("Jump");
                 VerticalVelocity = JumpStrength;
                 JumpPressed = false;
             }
+
+            Animator.SetBool("Grounded", true);
         }
         else
+        {
             VerticalVelocity -= Time.deltaTime * Gravity;
+            Animator.SetBool("Grounded", false);
+        }
 
         GetComponent<CharacterController>().Move(ControlMovement + new Vector3(0, VerticalVelocity * Time.deltaTime, 0));
 

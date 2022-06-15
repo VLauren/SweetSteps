@@ -34,8 +34,8 @@ public class Level : MonoBehaviour
 
         if(GenerateRandomLevel)
         {
-            int xSize = Random.Range(1, 10);
-            int ySize = Random.Range(1, 10);
+            int xSize = Random.Range(1, 6);
+            int ySize = Random.Range(1, 6);
 
             LevelToSpawn = xSize + "x" + ySize;
 
@@ -44,7 +44,7 @@ public class Level : MonoBehaviour
                 LevelToSpawn += "\n";
                 for (int j = 0; j < xSize; j++)
                 {
-                    LevelToSpawn += (Random.value < 0.5f) ? "1" : "0";
+                    LevelToSpawn += (Random.value < 0.65f) ? "1" : "0";
                 }
             }
         }

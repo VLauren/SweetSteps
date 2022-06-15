@@ -386,11 +386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8422106565912814494, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
       propertyPath: Gravity
-      value: 17
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8422106565912814494, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
       propertyPath: JumpStrength
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8422106565912814494, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
       propertyPath: MovementSpeed
