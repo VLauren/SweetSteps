@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 74d844497155e4e478bd0d9e9c236872, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   MovementSpeed: 3
   RotationSpeed: 360
   Gravity: 15
-  JumpStrength: 4
+  JumpStrength: 5
 --- !u!114 &1685588744006292419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: b47daceb852b77a4994962ecea32b438, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74d844497155e4e478bd0d9e9c236872, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b47daceb852b77a4994962ecea32b438, type: 3}
 --- !u!4 &4033162939270314290 stripped

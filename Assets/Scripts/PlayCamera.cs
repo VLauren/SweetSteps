@@ -7,19 +7,18 @@ public class PlayCamera : MonoBehaviour
     [SerializeField] float CameraDampTime;
     [SerializeField] float PositionMultiplier;
 
-    Vector3 Offset;
-    Vector3 CamVelocity;
+    [Space()]
+    [SerializeField] Vector3 Offset;
 
-    void Start()
-    {
-        Offset = transform.position;
-    }
+    Vector3 CamVelocity;
 
     void Update()
     {
-        Vector3 charFloorPos = MainChar.Instance.transform.position;
+        Vector3 charFloorPos = MainChar.Instance.transform.position - Level.Instance.LevelCenter;
         charFloorPos.y = 0;
 
-        transform.position = Vector3.SmoothDamp(transform.position, charFloorPos * PositionMultiplier + Offset, ref CamVelocity, CameraDampTime);
+        transform.position = Vector3.SmoothDamp(transform.position, Level.Instance.LevelCenter + charFloorPos * PositionMultiplier + Offset, ref CamVelocity, CameraDampTime);
+
+        // Debug.DrawLine(Level.Instance.LevelCenter, Level.Instance.LevelCenter + Vector3.up, Color.red); 
     }
 }

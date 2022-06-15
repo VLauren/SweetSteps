@@ -17,6 +17,8 @@ public class Level : MonoBehaviour
     [TextArea(15,20)]
     public string LevelToSpawn;
 
+    public Vector3 LevelCenter { get; private set; }
+
     List<Square> Squares;
 
     void Awake()
@@ -106,5 +108,7 @@ public class Level : MonoBehaviour
 
         levelStart.transform.localScale = new Vector3(3 * xSize - 0.2f, levelStart.transform.localScale.y, levelStart.transform.localScale.z);
         levelEnd.transform.Find("Floor").localScale = new Vector3(3 * xSize - 0.2f, levelEnd.transform.Find("Floor").localScale.y, levelEnd.transform.Find("Floor").localScale.z);
+
+        LevelCenter = new Vector3(-3 + 1.5f * xSize, 0, -3 + 1.5f * ySize);
     }
 }

@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -206,8 +206,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -264,14 +264,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.161729, y: -0.8373192, z: 0.39044833, w: 0.34682897}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 50, y: -135, z: 0}
 --- !u!1001 &8366782294089259446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,6 +327,18 @@ PrefabInstance:
       propertyPath: PositionMultiplier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8366782294242817221, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8366782294242817221, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8366782294242817221, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8366782294242817223, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -342,11 +354,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8422106565912813666, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8422106565912813666, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 8422106565912813666, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -383,18 +395,6 @@ PrefabInstance:
     - target: {fileID: 8422106565912813666, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422106565912814494, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
-      propertyPath: Gravity
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422106565912814494, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
-      propertyPath: JumpStrength
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422106565912814494, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8422106565912814495, guid: e290a1e1fc023a64ab9ad3924a0bdad2, type: 3}
       propertyPath: m_Name

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Square : MonoBehaviour
 {
+    public Color PressedEmission;
     void Start()
     {
         Level.AddSquare(this);
@@ -22,7 +23,8 @@ public class Square : MonoBehaviour
 
     IEnumerator Press()
     {
-        GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(0.2f, 0.2f, 0.2f));
+        // GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(0.2f, 0.2f, 0.2f));
+        GetComponent<Renderer>().material.SetColor("_EmissionColor", PressedEmission);
         GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
 
         Vector3 targetPosition = transform.position + Vector3.down * 0.1f;
