@@ -155,7 +155,7 @@ MonoBehaviour:
   SquarePrefab: {fileID: 7521123272857963088, guid: 069274e1ce9177244a6d1667958ee884, type: 3}
   LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
   LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
-  GenerateRandomLevel: 0
+  GenerateRandomLevel: 1
   LevelToSpawn: '4x3
 
     1001
@@ -322,22 +322,6 @@ PrefabInstance:
     - target: {fileID: 8366782294242817218, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8366782294242817219, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
-      propertyPath: PositionMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8366782294242817221, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8366782294242817221, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8366782294242817221, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8366782294242817223, guid: f21ece24dc4396f498aa46ccaca44702, type: 3}
       propertyPath: m_Name

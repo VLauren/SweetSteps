@@ -20,7 +20,7 @@ public class MainChar : MonoBehaviour
 
     protected Animator Animator;
 
-    float VerticalVelocity;
+    public float VerticalVelocity { get; private set; }
 
     void Awake()
     {

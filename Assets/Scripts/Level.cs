@@ -111,4 +111,16 @@ public class Level : MonoBehaviour
 
         LevelCenter = new Vector3(-3 + 1.5f * xSize, 0, -3 + 1.5f * ySize);
     }
+
+    public bool IsASquarePressed { get; private set; }
+
+    public static void OnSquarePressed(Square _square)
+    {
+        Instance.IsASquarePressed = true;
+    }
+
+    public static void OnSquareUnpressed(Square _square)
+    {
+        Instance.IsASquarePressed = false;
+    }
 }
