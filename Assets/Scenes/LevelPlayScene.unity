@@ -155,14 +155,29 @@ MonoBehaviour:
   SquarePrefab: {fileID: 7521123272857963088, guid: 069274e1ce9177244a6d1667958ee884, type: 3}
   LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
   LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
-  GenerateRandomLevel: 1
+  WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
+  GenerateRandomLevel: 0
   LevelToSpawn: '4x3
 
     1001
 
     1111
 
-    1001'
+    1001
+
+    0000
+
+    0ww0
+
+    0ww0
+
+    0000
+
+    0w0w0
+
+    00000
+
+    0w0w0'
 --- !u!4 &510140328
 Transform:
   m_ObjectHideFlags: 0

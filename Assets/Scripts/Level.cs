@@ -11,6 +11,7 @@ public class Level : MonoBehaviour
     public GameObject SquarePrefab;
     public GameObject LevelStartPrefab;
     public GameObject LevelEndPrefab;
+    public GameObject WallPrefab;
 
     [Space()]
     public bool GenerateRandomLevel;
@@ -28,12 +29,6 @@ public class Level : MonoBehaviour
 
     void Start()
     {
-        // SpawnLevel(
-            // "3x3\n" +
-            // "0,0,1\n" +
-            // "1,0,1\n" +
-            // "1,1,1");
-
         if(GenerateRandomLevel)
         {
             int xSize = Random.Range(1, 6);
@@ -80,19 +75,24 @@ public class Level : MonoBehaviour
 
         string[] lines = _levelData.Split("\n"[0]);
 
+        // ---------------------------
+        // Casillas
+
         int xSize = int.Parse(lines[0].Split('x')[0]);
         int ySize = int.Parse(lines[0].Split('x')[1]);
 
         char[,] grid = new char[xSize, ySize];
 
+        // Parsear datos y guardar en array bidimensional
         for (int i = 0; i < ySize; i++)
         {
-            string lineWithoutComma = lines[ySize - i].Replace(",", "");
+            string line = lines[ySize - i];
 
             for (int j = 0; j < xSize; j++)
-                grid[j, i] = lineWithoutComma[j];
+                grid[j, i] = line[j];
         }
 
+        // Instanciar casillas
         for (int i = 0; i < ySize; i++)
         {
             for (int j = 0; j < xSize; j++)
@@ -110,6 +110,69 @@ public class Level : MonoBehaviour
         levelEnd.transform.Find("Floor").localScale = new Vector3(3 * xSize - 0.2f, levelEnd.transform.Find("Floor").localScale.y, levelEnd.transform.Find("Floor").localScale.z);
 
         LevelCenter = new Vector3(-3 + 1.5f * xSize, 0, -3 + 1.5f * ySize);
+
+        // ---------------------------
+        // Muros
+
+        char[,] hWallGrid = new char[xSize, ySize + 1];
+        char[,] wWallGrid = new char[xSize + 1, ySize];
+
+        if (lines.Length > ySize + 1)
+        {
+            char[,] hWallsGrid = new char[xSize, ySize + 1];
+            char[,] vWallsGrid = new char[xSize + 1, ySize];
+
+            // Parsear datos y guardar en array bidimensional
+            for (int i = ySize + 1; i < ySize + 1 + ySize + 1; i++)
+            {
+                int lineIndex = 3 * (ySize + 1) - i - 1;
+                int gridYIndex = i - ySize - 1;
+                string line = lines[lineIndex];
+
+                for (int j = 0; j < xSize; j++)
+                {
+                    hWallGrid[j, gridYIndex] = line[j];
+                    // Debug.Log("hWallGrid(" + j + " " + gridYIndex + "):" + hWallGrid[j, gridYIndex] + " ");
+                }
+            }
+            for (int i = 2 * ySize + 2; i < 3 * ySize + 2 ; i++)
+            {
+                int lineIndex = (3 * ySize + 9) - i; // 10, 9, 8
+                int gridYIndex = i - (2 * ySize + 2);
+                string line = lines[lineIndex];
+
+                for (int j = 0; j < xSize + 1; j++)
+                {
+                    wWallGrid[j, gridYIndex] = line[j];
+                    // Debug.Log("wWallGrid(" + j + " " + gridYIndex + "):" + wWallGrid[j, gridYIndex] + " ");
+                }
+            }
+
+            // Instanciar casillas
+            for (int i = 0; i < ySize + 1; i++)
+            {
+                for (int j = 0; j < xSize; j++)
+                {
+                    // Si es 1, casilla de suelo
+                    if (hWallGrid[j, i] == 'w')
+                        Instantiate(WallPrefab, new Vector3(-1.5f + j * 3, 0.9f, -3f + i * 3), Quaternion.identity);
+                }
+            }
+            for (int i = 0; i < ySize; i++)
+            {
+                for (int j = 0; j < xSize + 1; j++)
+                {
+                    // Si es 1, casilla de suelo
+                    if (wWallGrid[j, i] == 'w')
+                        Instantiate(WallPrefab, new Vector3(-3f + j * 3, 0.9f, -1.5f + i * 3), Quaternion.Euler(0, 90, 0));
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("No hay muros");
+        }
+
     }
 
     public bool IsASquarePressed { get; private set; }
