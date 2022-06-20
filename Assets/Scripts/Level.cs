@@ -15,12 +15,27 @@ public class Level : MonoBehaviour
 
     [Space()]
     public bool GenerateRandomLevel;
+    public bool UseLevelList;
     [TextArea(15,20)]
     public string LevelToSpawn;
+
+    [Space()]
+    [TextArea(15,10)]
+    public List<string> LevelList;
 
     public Vector3 LevelCenter { get; private set; }
 
     List<Square> Squares;
+    static int LevelListIndex = 0;
+
+    public static void NextLevel()
+    {
+        LevelListIndex++;
+        if (LevelListIndex >= Instance.LevelList.Count)
+            LevelListIndex = 0;
+
+        SceneManager.LoadScene(0);
+    }
 
     void Awake()
     {
@@ -44,6 +59,10 @@ public class Level : MonoBehaviour
                     LevelToSpawn += (Random.value < 0.65f) ? "1" : "0";
                 }
             }
+        }
+        else if(UseLevelList)
+        {
+            LevelToSpawn = LevelList[LevelListIndex];
         }
 
         SpawnLevel(LevelToSpawn);

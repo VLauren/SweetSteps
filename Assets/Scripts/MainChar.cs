@@ -55,16 +55,21 @@ public class MainChar : MonoBehaviour
             if (JumpPressed)
             {
                 Animator.SetTrigger("Jump");
+                Animator.SetBool("Grounded", false);
                 VerticalVelocity = JumpStrength;
                 JumpPressed = false;
             }
-
-            Animator.SetBool("Grounded", true);
+            else
+            {
+                Animator.SetBool("Grounded", true);
+            }
         }
         else
         {
             VerticalVelocity -= Time.deltaTime * Gravity;
-            Animator.SetBool("Grounded", false);
+
+            if (VerticalVelocity < -2)
+                Animator.SetBool("Grounded", false);
         }
 
         GetComponent<CharacterController>().Move(ControlMovement + new Vector3(0, VerticalVelocity * Time.deltaTime, 0));

@@ -9,7 +9,7 @@ public class NextLevelTrigger : MonoBehaviour
     {
         if(other.GetComponent<MainChar>() != null)
         {
-            SceneManager.LoadScene(0);
+            Level.NextLevel();
         }
     }
 
