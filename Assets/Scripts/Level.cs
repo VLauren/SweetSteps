@@ -154,16 +154,16 @@ public class Level : MonoBehaviour
                     // Debug.Log("hWallGrid(" + j + " " + gridYIndex + "):" + hWallGrid[j, gridYIndex] + " ");
                 }
             }
-            for (int i = 2 * ySize + 2; i < 3 * ySize + 2 ; i++)
+            for (int i = 2 * ySize + 2; i < 2 * ySize + 2 + ySize; i++)
             {
-                int lineIndex = (3 * ySize + 9) - i; // 10, 9, 8
+                int lineIndex = 2 * ySize + 2 + ySize + 1 + 2 * ySize - i;
                 int gridYIndex = i - (2 * ySize + 2);
                 string line = lines[lineIndex];
 
                 for (int j = 0; j < xSize + 1; j++)
                 {
                     wWallGrid[j, gridYIndex] = line[j];
-                    // Debug.Log("wWallGrid(" + j + " " + gridYIndex + "):" + wWallGrid[j, gridYIndex] + " ");
+                    // Debug.Log("wWallGrid(" + j + " " + gridYIndex + "):" + wWallGrid[j, gridYIndex]);
                 }
             }
 
