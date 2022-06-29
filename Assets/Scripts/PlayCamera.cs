@@ -14,11 +14,18 @@ public class PlayCamera : MonoBehaviour
 
     void Update()
     {
-        Vector3 charFloorPos = MainChar.Instance.transform.position - Level.Instance.LevelCenter;
-        charFloorPos.y = 0;
+        if (Level.Instance != null)
+        {
+            Vector3 charFloorPos = MainChar.Instance.transform.position - Level.Instance.LevelCenter;
+            charFloorPos.y = 0;
 
-        transform.position = Vector3.SmoothDamp(transform.position, Level.Instance.LevelCenter + charFloorPos * PositionMultiplier + Offset, ref CamVelocity, CameraDampTime);
+            transform.position = Vector3.SmoothDamp(transform.position, Level.Instance.LevelCenter + charFloorPos * PositionMultiplier + Offset, ref CamVelocity, CameraDampTime);
+            // Debug.DrawLine(Level.Instance.LevelCenter, Level.Instance.LevelCenter + Vector3.up, Color.red); 
+        }
+        else
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, MainChar.Instance.transform.position + Offset, ref CamVelocity, CameraDampTime);
+        }
 
-        // Debug.DrawLine(Level.Instance.LevelCenter, Level.Instance.LevelCenter + Vector3.up, Color.red); 
     }
 }

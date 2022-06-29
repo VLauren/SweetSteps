@@ -44,19 +44,38 @@ public class Level : MonoBehaviour
 
     void Start()
     {
-        if(GenerateRandomLevel)
+        if (GenerateRandomLevel)
         {
             int xSize = Random.Range(1, 6);
             int ySize = Random.Range(1, 6);
 
             LevelToSpawn = xSize + "x" + ySize;
 
+            // Casillas
             for (int i = 0; i < ySize; i++)
             {
                 LevelToSpawn += "\n";
                 for (int j = 0; j < xSize; j++)
                 {
                     LevelToSpawn += (Random.value < 0.65f) ? "1" : "0";
+                }
+            }
+
+            // Muros
+            for (int i = 0; i < ySize + 1; i++)
+            {
+                LevelToSpawn += "\n";
+                for (int j = 0; j < xSize; j++)
+                {
+                    LevelToSpawn += (Random.value < 0.2f) ? "w" : "-";
+                }
+            }
+            for (int i = 0; i < ySize; i++)
+            {
+                LevelToSpawn += "\n";
+                for (int j = 0; j < xSize + 1; j++)
+                {
+                    LevelToSpawn += (Random.value < 0.2f) ? "w" : "-";
                 }
             }
         }

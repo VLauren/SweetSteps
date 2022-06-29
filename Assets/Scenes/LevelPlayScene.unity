@@ -156,8 +156,8 @@ MonoBehaviour:
   LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
   LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
   WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
-  GenerateRandomLevel: 0
-  UseLevelList: 1
+  GenerateRandomLevel: 1
+  UseLevelList: 0
   LevelToSpawn: '4x3
 
     1001
@@ -474,7 +474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607154590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 0.28454354, z: -18.300001}
+  m_LocalPosition: {x: -12.6, y: 0.28454354, z: -32.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
