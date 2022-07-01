@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
@@ -23,6 +24,9 @@ public class Level : MonoBehaviour
     [TextArea(15,10)]
     public List<string> LevelList;
 
+    [Space()]
+    public GameObject DebugEndText;
+
     public Vector3 LevelCenter { get; private set; }
 
     List<Square> Squares;
@@ -42,8 +46,18 @@ public class Level : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        var keyboard = Keyboard.current;
+        if (keyboard.nKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
+            NextLevel();
+    }
+
     void Start()
     {
+        if (LevelListIndex >= 9)
+            Instance.DebugEndText.SetActive(true);
+
         if (GenerateRandomLevel)
         {
             int xSize = Random.Range(1, 6);
