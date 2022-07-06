@@ -11,6 +11,8 @@ public class Hub : MonoBehaviour
     // TODO
     // - csv parser
     // - parsear world, door, level, level data
+
+    // - Clase LevelsData con string getleveldata(w, d, l)
     // - clase estatica game data
     //      - grupo de 3 bools por puerta
     //      - calcular IsWorldUnlocked según bools
@@ -22,5 +24,17 @@ public class Hub : MonoBehaviour
     // - debloquear shard de puerta tras nivel final
     // - test full sistema de unlock con niveles de relleno
     // - area especial a final de puerta de recoger shard
-    
+
+    void Start()
+    {
+        TextAsset lvlTxt = Resources.Load<TextAsset>("levels");
+        string[,] levelData = CSVReader.SplitCsvGrid(lvlTxt.text);
+
+        for (int row = 1; row < levelData.GetLength(1); row++)
+        {
+            Debug.Log("level " + row + ": " +levelData[3, row]);
+        }
+
+        Level.Instance.SpawnLevel(levelData[3, 1]);
+    }
 }

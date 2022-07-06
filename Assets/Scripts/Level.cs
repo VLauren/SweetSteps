@@ -17,6 +17,9 @@ public class Level : MonoBehaviour
     [Space()]
     public bool GenerateRandomLevel;
     public bool UseLevelList;
+    public bool DontSpawn;
+
+    [Space()]
     [TextArea(15,20)]
     public string LevelToSpawn;
 
@@ -98,7 +101,8 @@ public class Level : MonoBehaviour
             LevelToSpawn = LevelList[LevelListIndex];
         }
 
-        SpawnLevel(LevelToSpawn);
+        if (!DontSpawn)
+            SpawnLevel(LevelToSpawn);
     }
 
     public static void AddSquare(Square _square)
@@ -121,11 +125,11 @@ public class Level : MonoBehaviour
         }
     }
 
-    void SpawnLevel(string _levelData)
+    public void SpawnLevel(string _levelData)
     {
         // Debug.Log("Spawn level " + _levelData);
 
-        string[] lines = _levelData.Split("\n"[0]);
+        string[] lines = _levelData.Split("\n"[0], ';');
 
         // ---------------------------
         // Casillas
