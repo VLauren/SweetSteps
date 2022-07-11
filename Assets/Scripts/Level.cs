@@ -21,7 +21,7 @@ public class Level : MonoBehaviour
 
     [Space()]
     [TextArea(15,20)]
-    public string LevelToSpawn;
+    public static string LevelToSpawn;
 
     [Space()]
     [TextArea(15,10)]
@@ -37,9 +37,11 @@ public class Level : MonoBehaviour
 
     public static void NextLevel()
     {
-        LevelListIndex++;
-        if (LevelListIndex >= Instance.LevelList.Count)
-            LevelListIndex = 0;
+        // LevelListIndex++;
+        // if (LevelListIndex >= Instance.LevelList.Count)
+            // LevelListIndex = 0;
+        
+        // TODO cargar nivel siguiente de LevelsData y ponerlo como LevelToSpawn
 
         SceneManager.LoadScene(0);
     }

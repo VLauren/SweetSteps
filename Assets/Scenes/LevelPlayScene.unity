@@ -158,7 +158,7 @@ MonoBehaviour:
   WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
   GenerateRandomLevel: 0
   UseLevelList: 0
-  DontSpawn: 1
+  DontSpawn: 0
   LevelToSpawn: '4x3
 
     1001

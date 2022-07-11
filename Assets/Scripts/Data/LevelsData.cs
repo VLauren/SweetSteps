@@ -48,4 +48,12 @@ public static class LevelsData
 
         return AllLevelData[_world][_door][_level];
     }
+
+    public static int DoorLevelCount(int _world, int _door)
+    {
+        if (AllLevelData == null)
+            UpdateLevelsData();
+
+        return 1;
+    }
 }
