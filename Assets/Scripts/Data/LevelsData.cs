@@ -37,7 +37,7 @@ public static class LevelsData
             else
                 AllLevelData[world][door][level] = data;
 
-            Debug.Log(world + " " + door + " " + level + " " + data);
+            // Debug.Log(world + " " + door + " " + level + " " + data);
         }
     }
 
@@ -54,6 +54,6 @@ public static class LevelsData
         if (AllLevelData == null)
             UpdateLevelsData();
 
-        return 1;
+        return AllLevelData[_world][_door].Count;
     }
 }

@@ -39,11 +39,18 @@ public class Level : MonoBehaviour
     {
         // LevelListIndex++;
         // if (LevelListIndex >= Instance.LevelList.Count)
-            // LevelListIndex = 0;
-        
-        // TODO cargar nivel siguiente de LevelsData y ponerlo como LevelToSpawn
+        // LevelListIndex = 0;
 
-        SceneManager.LoadScene(0);
+        if (GameData.CurrentLevel >= LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            GameData.CurrentLevel++;
+            Level.LevelToSpawn = LevelsData.GetLevelData(GameData.CurrentWorld, GameData.CurrentDoor, GameData.CurrentLevel);
+            SceneManager.LoadScene(0);
+        }
     }
 
     void Awake()
@@ -228,7 +235,7 @@ public class Level : MonoBehaviour
         }
         else
         {
-            Debug.Log("No hay muros");
+            // Debug.Log("No hay muros");
         }
 
     }

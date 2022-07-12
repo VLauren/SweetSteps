@@ -14,6 +14,7 @@ public class HubDoorTrigger : MonoBehaviour
         {
             GameData.CurrentWorld = World;
             GameData.CurrentDoor = Door;
+            GameData.CurrentLevel = 1;
 
             Level.LevelToSpawn = LevelsData.GetLevelData(World, Door, 1);
             SceneManager.LoadScene(0);

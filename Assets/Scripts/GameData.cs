@@ -8,6 +8,7 @@ public static class GameData
 
     public static int CurrentWorld;
     public static int CurrentDoor;
+    public static int CurrentLevel;
 
     public static bool IsWorldUnlocked(int _world)
     {
