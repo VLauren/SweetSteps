@@ -6,7 +6,7 @@ public static class GameData
 {
     static Dictionary<int, bool[]> CompletedDoors;
 
-    public static int CurrentWorld;
+    public static int CurrentWorld = 1;
     public static int CurrentDoor;
     public static int CurrentLevel;
 
@@ -18,6 +18,20 @@ public static class GameData
 
         // Un mundo está desbloqueado si las 3 puertas del mundo anterior se han completado
         return CompletedDoors[_world - 1][0] && CompletedDoors[_world - 1][1] && CompletedDoors[_world - 1][2];
+    }
+
+    public static bool IsDoorUnlocked(int _world, int _door)
+    {
+        if (!IsWorldUnlocked(_world))
+            return false;
+
+        if (_door == 1)
+            return true;
+
+        if (CompletedDoors[_world][_door - 1])
+            return true;
+
+        return false;
     }
 
     public static void SetDoorComplete(int _world, int _door)

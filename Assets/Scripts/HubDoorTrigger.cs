@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class HubDoorTrigger : MonoBehaviour
 {
-    [SerializeField] int World;
-    [SerializeField] int Door;
+    public int World;
+    public int Door;
 
     void OnTriggerEnter(Collider other)
     {

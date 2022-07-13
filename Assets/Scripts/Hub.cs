@@ -7,19 +7,27 @@ public class Hub : MonoBehaviour
     // Hub system
     // 4 mundos de 3 puertas con x niveles (entre 5 y 10)
 
+    [SerializeField] HubDoorTrigger DoorTrigger1;
+    [SerializeField] HubDoorTrigger DoorTrigger2;
+    [SerializeField] HubDoorTrigger DoorTrigger3;
+
+    [SerializeField] GameObject Door1;
+    [SerializeField] GameObject Door2;
+    [SerializeField] GameObject Door3;
+
     void Start()
     {
-        /*
-        TextAsset lvlTxt = Resources.Load<TextAsset>("levels");
-        string[,] levelData = CSVReader.SplitCsvGrid(lvlTxt.text);
+        DoorTrigger1.Door = 1;
+        DoorTrigger2.Door = 2;
+        DoorTrigger3.Door = 3;
 
-        for (int row = 1; row < levelData.GetLength(1); row++)
-        {
-            Debug.Log("level " + row + ": " +levelData[3, row]);
-        }
+        DoorTrigger1.World = GameData.CurrentWorld;
+        DoorTrigger2.World = GameData.CurrentWorld;
+        DoorTrigger3.World = GameData.CurrentWorld;
 
-        Level.Instance.SpawnLevel(levelData[3, 1]);
-        */
-        LevelsData.GetLevelData(1, 1, 1);
+
+        Door1.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 1));
+        Door2.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 2));
+        Door3.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 3));
     }
 }
