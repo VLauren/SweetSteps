@@ -9,10 +9,10 @@ public static class LevelsData
     static void UpdateLevelsData()
     {
         // Archivo con datos de niveles
-        TextAsset attacksCSVData = Resources.Load<TextAsset>("levels");
+        TextAsset levelsCSVData = Resources.Load<TextAsset>("levels");
 
         // Array bidimensional construido a partir del archivo csv
-        string[,] stringsGrid = CSVReader.SplitCsvGrid(attacksCSVData.text);
+        string[,] stringsGrid = CSVReader.SplitCsvGrid(levelsCSVData.text);
 
         // Diccionario con los datos
         AllLevelData = new Dictionary<int, Dictionary<int, Dictionary<int, string>>>();

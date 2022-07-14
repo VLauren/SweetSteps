@@ -25,7 +25,6 @@ public class Hub : MonoBehaviour
         DoorTrigger2.World = GameData.CurrentWorld;
         DoorTrigger3.World = GameData.CurrentWorld;
 
-
         Door1.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 1));
         Door2.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 2));
         Door3.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 3));

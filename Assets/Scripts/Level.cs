@@ -43,6 +43,7 @@ public class Level : MonoBehaviour
 
         if (GameData.CurrentLevel >= LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor))
         {
+            GameData.SetDoorComplete(GameData.CurrentWorld, GameData.CurrentDoor);
             SceneManager.LoadScene(1);
         }
         else
@@ -138,7 +139,7 @@ public class Level : MonoBehaviour
     {
         // Debug.Log("Spawn level " + _levelData);
 
-        string[] lines = _levelData.Split("\n"[0], ';');
+        string[] lines = _levelData.Split("\n"[0], ';', ':');
 
         // ---------------------------
         // Casillas
