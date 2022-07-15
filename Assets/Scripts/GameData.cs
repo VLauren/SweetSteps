@@ -18,11 +18,24 @@ public static class GameData
 
         if (CompletedDoors == null)
             CompletedDoors = new Dictionary<int, bool[]>();
+        if (!CompletedDoors.ContainsKey(_world - 1))
+            CompletedDoors.Add(_world - 1, new bool[3]);
+
+        // Un mundo está desbloqueado si las 3 puertas del mundo anterior se han completado
+        return CompletedDoors[_world - 1][0] && CompletedDoors[_world - 1][1] && CompletedDoors[_world - 1][2];
+    }
+
+    public static bool IsDoorCompleted(int _world, int _door)
+    {
+        if (!IsWorldUnlocked(_world))
+            return false;
+
+        if (CompletedDoors == null)
+            CompletedDoors = new Dictionary<int, bool[]>();
         if (!CompletedDoors.ContainsKey(_world))
             CompletedDoors.Add(_world, new bool[3]);
 
-        // Un mundo está desbloqueado si las 3 puertas del mundo anterior se han completado
-        return CompletedDoors[_world][0] && CompletedDoors[_world][1] && CompletedDoors[_world][2];
+        return CompletedDoors[_world][_door - 1];
     }
 
     public static bool IsDoorUnlocked(int _world, int _door)
@@ -52,5 +65,14 @@ public static class GameData
             CompletedDoors.Add(_world, new bool[3]);
 
         CompletedDoors[_world][_door - 1] = true;
+    }
+
+    public static void SetWorld(int _world)
+    {
+        CurrentWorld = _world;
+        if (CurrentWorld > 4)
+            CurrentWorld = 4;
+        if (CurrentWorld < 1)
+            CurrentWorld = 1;
     }
 }

@@ -79,9 +79,12 @@ public class MainChar : MonoBehaviour
             SceneManager.LoadScene(0);
 
         // ----------------------------------
+
         var keyboard = Keyboard.current;
-        if (keyboard.oKey.wasPressedThisFrame)
-            Debug.Log("Test");
+        if (keyboard.digit3Key.wasPressedThisFrame)
+            Time.timeScale = 3;
+        if (keyboard.digit1Key.wasPressedThisFrame)
+            Time.timeScale = 1;
     }
 
     void OnMove(InputValue _value)

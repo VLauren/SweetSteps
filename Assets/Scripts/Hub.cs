@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Hub : MonoBehaviour
 {
@@ -28,5 +30,20 @@ public class Hub : MonoBehaviour
         Door1.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 1));
         Door2.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 2));
         Door3.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 3));
+    }
+
+    private void Update()
+    {
+        Keyboard kbrd = Keyboard.current;
+        if(kbrd.numpadPlusKey.wasPressedThisFrame)
+        {
+            GameData.SetWorld(GameData.CurrentWorld + 1);
+            SceneManager.LoadScene("HubScene");
+        }
+        if(kbrd.numpadMinusKey.wasPressedThisFrame)
+        {
+            GameData.SetWorld(GameData.CurrentWorld - 1);
+            SceneManager.LoadScene("HubScene");
+        }
     }
 }
