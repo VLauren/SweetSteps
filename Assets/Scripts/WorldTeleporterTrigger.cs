@@ -14,7 +14,7 @@ public class WorldTeleporterTrigger : MonoBehaviour
             if(GameData.IsWorldUnlocked(World) && World != GameData.CurrentWorld)
             {
                 GameData.SetWorld(World);
-                SceneManager.LoadScene("HubScene");
+                SceneManager.LoadScene("HubScene" + (World == 1 ? 1 : 2));
             }
         }
     }

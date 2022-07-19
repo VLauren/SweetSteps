@@ -38,12 +38,12 @@ public class Hub : MonoBehaviour
         if(kbrd.numpadPlusKey.wasPressedThisFrame)
         {
             GameData.SetWorld(GameData.CurrentWorld + 1);
-            SceneManager.LoadScene("HubScene");
+            SceneManager.LoadScene("HubScene" + (GameData.CurrentWorld == 1 ? 1 : 2));
         }
-        if(kbrd.numpadMinusKey.wasPressedThisFrame)
+        if (kbrd.numpadMinusKey.wasPressedThisFrame)
         {
             GameData.SetWorld(GameData.CurrentWorld - 1);
-            SceneManager.LoadScene("HubScene");
+            SceneManager.LoadScene("HubScene" + (GameData.CurrentWorld == 1 ? 1 : 2));
         }
     }
 }

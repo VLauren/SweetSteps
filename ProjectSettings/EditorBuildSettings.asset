@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelPlayScene.unity
     guid: c9ee5955adfc6d74d9776be607481bcb
   - enabled: 1
-    path: Assets/Scenes/HubScene.unity
+    path: Assets/Scenes/HubScene1.unity
     guid: 70615ab0c500d4f489fe27fa86c80265
+  - enabled: 1
+    path: Assets/Scenes/HubScene2.unity
+    guid: d7fd0355d67789847841a4c679710773
   m_configObjects: {}
