@@ -76,7 +76,7 @@ public class MainChar : MonoBehaviour
 
         // Perder por caida
         if(transform.position.y < -5)
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         // ----------------------------------
 

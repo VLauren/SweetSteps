@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
 
     [Header("Instantiation Prefabs")]
     public GameObject SquarePrefab;
+    public GameObject TwoPressSquarePrefab;
     public GameObject LevelStartPrefab;
     public GameObject LevelEndPrefab;
     public GameObject WallPrefab;
@@ -37,10 +38,6 @@ public class Level : MonoBehaviour
 
     public static void NextLevel()
     {
-        // LevelListIndex++;
-        // if (LevelListIndex >= Instance.LevelList.Count)
-        // LevelListIndex = 0;
-
         if (GameData.CurrentLevel >= LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor))
         {
             GameData.SetDoorComplete(GameData.CurrentWorld, GameData.CurrentDoor);
@@ -84,7 +81,7 @@ public class Level : MonoBehaviour
                 LevelToSpawn += "\n";
                 for (int j = 0; j < xSize; j++)
                 {
-                    LevelToSpawn += (Random.value < 0.65f) ? "1" : "0";
+                    LevelToSpawn += (Random.value < 0.65f) ? (Random.value < 0.3f ? "2" : "1") : "0";
                 }
             }
 
@@ -94,7 +91,7 @@ public class Level : MonoBehaviour
                 LevelToSpawn += "\n";
                 for (int j = 0; j < xSize; j++)
                 {
-                    LevelToSpawn += (Random.value < 0.2f) ? "w" : "-";
+                    LevelToSpawn += (Random.value < 0.1f) ? "w" : "-";
                 }
             }
             for (int i = 0; i < ySize; i++)
@@ -102,7 +99,7 @@ public class Level : MonoBehaviour
                 LevelToSpawn += "\n";
                 for (int j = 0; j < xSize + 1; j++)
                 {
-                    LevelToSpawn += (Random.value < 0.2f) ? "w" : "-";
+                    LevelToSpawn += (Random.value < 0.1f) ? "w" : "-";
                 }
             }
         }
@@ -166,6 +163,9 @@ public class Level : MonoBehaviour
                 // Si es 1, casilla de suelo
                 if (grid[j, i] == '1')
                     Instantiate(SquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
+                // Si es 2, casilla de pulsar dos veces
+                if (grid[j, i] == '2')
+                    Instantiate(TwoPressSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
             }
         }
 

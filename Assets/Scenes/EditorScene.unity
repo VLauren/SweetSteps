@@ -132,60 +132,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 510140328}
-  - component: {fileID: 510140327}
+  - component: {fileID: 510140329}
   m_Layer: 0
-  m_Name: Level
+  m_Name: Editor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &510140327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510140326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caa24365646b3ca42a89e387a82268f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SquarePrefab: {fileID: 7521123272857963088, guid: 069274e1ce9177244a6d1667958ee884, type: 3}
-  TwoPressSquarePrefab: {fileID: 1447607313312359435, guid: bb6947414bc528f42b2b2ba52a4970cc, type: 3}
-  LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
-  LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
-  WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
-  GenerateRandomLevel: 0
-  UseLevelList: 0
-  DontSpawn: 0
-  LevelList:
-  - '3x1
-
-    012'
-  - 5x5;11011;11011;11111;11111;00100;-----;-----;-----;-----;-----;-----;------;-w--w-;-w--w-;------;------
-  - 3x3;111;010;111
-  - 3x2;101;101
-  - 2x4;01;01;10;10
-  - 3x3;101;010;101
-  - 4x3;1101;1101;1101
-  - 4x2;1111;1111;----;-ww-;----;-----;-----
-  - 4x4;1001;1001;1111;1001
-  - '1x6
-
-    0
-
-    0
-
-    0
-
-    0
-
-    0
-
-    0'
-  DebugEndText: {fileID: 827863929}
 --- !u!4 &510140328
 Transform:
   m_ObjectHideFlags: 0
@@ -201,6 +155,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510140329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510140326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9726375a61c3af41a7d9171dc38b4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquarePrefab: {fileID: 7521123272857963088, guid: 069274e1ce9177244a6d1667958ee884, type: 3}
+  TwoPressSquarePrefab: {fileID: 1447607313312359435, guid: bb6947414bc528f42b2b2ba52a4970cc, type: 3}
+  LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
+  LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
+  WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
