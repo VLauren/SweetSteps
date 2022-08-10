@@ -114,6 +114,9 @@ public class Level : MonoBehaviour
 
     public static void AddSquare(Square _square)
     {
+        if (Instance == null)
+            return;
+
         if (Instance.Squares == null)
             Instance.Squares = new List<Square>();
 
