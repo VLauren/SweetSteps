@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class LevelEditor : MonoBehaviour
 {
+    public static bool EditorMode { get; private set; }
+
     [Header("Prefabs")]
     public GameObject SquarePrefab;
     public GameObject TwoPressSquarePrefab;
@@ -17,12 +21,19 @@ public class LevelEditor : MonoBehaviour
 
     Transform EditorCursor;
 
-    Dictionary<int, Dictionary<int, GameObject>> PlacedItems;
+    static Dictionary<int, Dictionary<int, GameObject>> PlacedItems;
+    static int highestX, highestY;
 
     void Start()
     {
         EditorCursor = Instantiate(CursorPrefab).transform;
-        PlacedItems = new Dictionary<int, Dictionary<int, GameObject>>();
+
+        EditorMode = true;
+
+        if (PlacedItems != null)
+            foreach (var column in PlacedItems)
+                foreach (var element in column.Value)
+                    element.Value.SetActive(true);
     }
 
     void Update()
@@ -53,9 +64,22 @@ public class LevelEditor : MonoBehaviour
         if(kb.digit2Key.wasPressedThisFrame)
             PlaceItem(TwoPressSquarePrefab, hitPt, xPos, yPos);
 
-        // - generar texto de nivel
+
+        if (kb.pKey.wasPressedThisFrame)
+        {
+            Level.LevelToSpawn = GetCurrentLevelString();
+
+            string path = Application.dataPath + "/Data/Resources/LastPlayedLevel.txt";
+            System.IO.File.WriteAllText(path, GetCurrentLevelString());
+
+            foreach (var column in PlacedItems)
+                foreach (var element in column.Value)
+                    element.Value.SetActive(false);
+
+            SceneManager.LoadScene(0);
+        }
+
         // - guardar en archivo?
-        //
         // - probar nivel y vuelta a edit
         //
         // - seleccion y colocar con click
@@ -64,10 +88,18 @@ public class LevelEditor : MonoBehaviour
         // - guardar wall
         // - generacion de texto con paredes
 
+        if (kb.sKey.wasPressedThisFrame)
+        {
+            Debug.Log(Application.dataPath + "/Resources" );
+        }
+
     }
 
     void PlaceItem(GameObject _prefab, Vector3 _position, int _xIndex, int _yIndex)
     {
+        if (PlacedItems == null)
+            PlacedItems = new Dictionary<int, Dictionary<int, GameObject>>();
+
         if (!PlacedItems.ContainsKey(_xIndex))
             PlacedItems.Add(_xIndex, new Dictionary<int, GameObject>());
         if (!PlacedItems[_xIndex].ContainsKey(_yIndex))
@@ -76,6 +108,44 @@ public class LevelEditor : MonoBehaviour
         if (PlacedItems[_xIndex][_yIndex] != null)
             Destroy(PlacedItems[_xIndex][_yIndex]);
 
-        PlacedItems[_xIndex][_yIndex] = Instantiate(_prefab, _position, Quaternion.identity);
+        GameObject newItem = Instantiate(_prefab, _position, Quaternion.identity);
+        PlacedItems[_xIndex][_yIndex] = newItem;
+        DontDestroyOnLoad(newItem);
+
+        if (_xIndex > highestX)
+            highestX = _xIndex;
+        if (_yIndex > highestY)
+            highestY = _yIndex;
+    }
+
+    string GetCurrentLevelString()
+    {
+        string res = (highestX + 1) + "x" + (highestY + 1);
+
+        for (int j = highestY; j >= 0; j--)
+        {
+            res += ":";
+            for (int i = 0; i < highestX + 1; i++)
+            {
+                if(PlacedItems.ContainsKey(i))
+                {
+                    if (PlacedItems[i].ContainsKey(j))
+                    {
+                        if (PlacedItems[i][j].GetComponent<MultiplePressSquare>() != null)
+                            res += "2";
+                        else if (PlacedItems[i][j].GetComponent<Square>() != null)
+                            res += "1";
+                        else
+                            res += "0";
+                    }
+                    else
+                        res += "0";
+                }
+                else
+                    res += "0";
+            }
+        }
+
+        return res;
     }
 }

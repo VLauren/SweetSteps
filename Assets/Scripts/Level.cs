@@ -38,7 +38,11 @@ public class Level : MonoBehaviour
 
     public static void NextLevel()
     {
-        if (GameData.CurrentLevel >= LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor))
+        if(LevelEditor.EditorMode)
+        {
+            SceneManager.LoadScene("EditorScene");
+        }
+        else if (GameData.CurrentLevel >= LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor))
         {
             GameData.SetDoorComplete(GameData.CurrentWorld, GameData.CurrentDoor);
             SceneManager.LoadScene(1);
