@@ -47,23 +47,69 @@ public class LevelEditor : MonoBehaviour
         if (floor.Raycast(ray, out enter))
             hitPt = ray.GetPoint(enter);
 
-        hitPt.x = 3 * Mathf.RoundToInt((hitPt.x - 1.5f) / 3) + 1.5f;
-        hitPt.z = 3 * Mathf.RoundToInt((hitPt.z - 1.5f) / 3) + 1.5f;
+        int xPos = 0;
+        int yPos = 0;
 
-        hitPt = new Vector3(Mathf.Clamp(hitPt.x, -1.5f, 30), 0, Mathf.Clamp(hitPt.z, -1.5f, 30));
+        Debug.DrawRay(Camera.main.transform.position, ray.direction * 300, Color.green);
+        Debug.DrawLine(hitPt, hitPt + Vector3.up, Color.blue);
 
-        int xPos = Mathf.RoundToInt((hitPt.x + 1.5f) / 3);
-        int yPos = Mathf.RoundToInt((hitPt.z + 1.5f) / 3);
+        if (false)
+        {
+            hitPt.x = 3 * Mathf.RoundToInt((hitPt.x - 1.5f) / 3) + 1.5f;
+            hitPt.z = 3 * Mathf.RoundToInt((hitPt.z - 1.5f) / 3) + 1.5f;
+
+            hitPt = new Vector3(Mathf.Clamp(hitPt.x, -1.5f, 30), 0, Mathf.Clamp(hitPt.z, -1.5f, 30));
+
+            xPos = Mathf.RoundToInt((hitPt.x + 1.5f) / 3);
+            yPos = Mathf.RoundToInt((hitPt.z + 1.5f) / 3);
+        }
+        else
+        {
+            hitPt.x = 3 * Mathf.RoundToInt((hitPt.x - 1.5f) / 3) + 1.5f;
+            hitPt.z = 3 * Mathf.RoundToInt((hitPt.z - 1.5f) / 3) + 1.5f;
+
+            Debug.DrawLine(hitPt, hitPt + Vector3.up, Color.black);
+
+            hitPt = new Vector3(Mathf.Clamp(hitPt.x, -1.5f, 30), 0, Mathf.Clamp(hitPt.z, -1.5f, 30));
+
+            Debug.DrawLine(hitPt, hitPt + Vector3.up, Color.red);
+
+            xPos = Mathf.RoundToInt((hitPt.x + 1.5f) / 3);
+            yPos = Mathf.RoundToInt((hitPt.z + 1.5f) / 3);
+        }
 
         EditorCursor.position = hitPt;
 
         Keyboard kb = Keyboard.current;
+        Mouse ms = Mouse.current;
 
+        // Selecciar qué colocar
         if(kb.digit1Key.wasPressedThisFrame)
-            PlaceItem(SquarePrefab, hitPt, xPos, yPos);
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(SquarePrefab, EditorCursor.transform.position, Quaternion.identity).transform;
+        }
         if(kb.digit2Key.wasPressedThisFrame)
-            PlaceItem(TwoPressSquarePrefab, hitPt, xPos, yPos);
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(TwoPressSquarePrefab, EditorCursor.transform.position, Quaternion.identity).transform;
+        }
 
+        // Colocar
+        if(ms.leftButton.wasPressedThisFrame)
+        {
+            PlaceItem(EditorCursor.gameObject, hitPt, xPos, yPos);
+        }
+
+        // Borrar
+        if(ms.rightButton.wasPressedThisFrame)
+        {
+            if (PlacedItems != null && PlacedItems.ContainsKey(xPos) && PlacedItems[xPos].ContainsKey(yPos))
+            {
+                Destroy(PlacedItems[xPos][yPos]);
+                PlacedItems[xPos].Remove(yPos);
+            }
+        }
 
         if (kb.pKey.wasPressedThisFrame)
         {
@@ -79,18 +125,13 @@ public class LevelEditor : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        // - guardar en archivo?
-        // - probar nivel y vuelta a edit
-        //
-        // - seleccion y colocar con click
-        // - borrar con click derecho
         // - seleccion de pared: cursor en intersecciones + PlaceWall
         // - guardar wall
         // - generacion de texto con paredes
 
         if (kb.sKey.wasPressedThisFrame)
         {
-            Debug.Log(Application.dataPath + "/Resources" );
+            Debug.Log(Application.dataPath + "/Resources");
         }
 
     }
