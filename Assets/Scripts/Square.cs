@@ -62,7 +62,8 @@ public class Square : MonoBehaviour
         Pressed = true;
         Level.OnSquarePressed(this);
 
-        GetComponent<Renderer>().material.color = Color.white;
+        // GetComponent<Renderer>().material.color = Color.white;
+        GetComponent<Renderer>().material.color = Color.black;
         GetComponent<Renderer>().material.SetColor("_EmissionColor", PressedEmission);
         GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
 
