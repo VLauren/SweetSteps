@@ -12,6 +12,20 @@ public class PlayCamera : MonoBehaviour
 
     Vector3 CamVelocity;
 
+    private void Start()
+    {
+        if (Level.Instance != null)
+        {
+            Vector3 charFloorPos = MainChar.Instance.transform.position - Level.Instance.LevelCenter;
+            charFloorPos.y = 0;
+            transform.position = Level.Instance.LevelCenter + charFloorPos * PositionMultiplier + Offset;
+        }
+        else
+        {
+            transform.position = MainChar.Instance.transform.position + Offset;
+        }
+    }
+
     void Update()
     {
         if (Level.Instance != null)

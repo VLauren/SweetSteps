@@ -15,7 +15,7 @@ public class DoorEndObject : MonoBehaviour
         if (other.GetComponent<MainChar>() != null)
         {
             // Cargar escena de hub
-            SceneManager.LoadScene("HubScene");
+            SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
         }
     }
 

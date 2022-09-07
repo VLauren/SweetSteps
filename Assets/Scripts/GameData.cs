@@ -7,7 +7,7 @@ public static class GameData
     static Dictionary<int, bool[]> CompletedDoors;
 
     public static int CurrentWorld = 1;
-    public static int CurrentDoor;
+    public static int CurrentDoor = 1;
     public static int CurrentLevel;
 
     public static bool IsWorldUnlocked(int _world)

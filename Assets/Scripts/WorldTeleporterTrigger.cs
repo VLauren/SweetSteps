@@ -13,6 +13,7 @@ public class WorldTeleporterTrigger : MonoBehaviour
         {
             if(GameData.IsWorldUnlocked(World) && World != GameData.CurrentWorld)
             {
+                GameData.CurrentDoor = 0;
                 GameData.SetWorld(World);
                 SceneManager.LoadScene("HubScene" + (World == 1 ? 1 : 2));
             }

@@ -30,6 +30,22 @@ public class Hub : MonoBehaviour
         Door1.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 1));
         Door2.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 2));
         Door3.SetActive(!GameData.IsDoorUnlocked(GameData.CurrentWorld, 3));
+
+        GameObject DoorToSpawnPlayer = null;
+        if (GameData.CurrentDoor == 1)
+            DoorToSpawnPlayer = DoorTrigger1.gameObject;
+        if (GameData.CurrentDoor == 2)
+            DoorToSpawnPlayer = DoorTrigger2.gameObject;
+        if (GameData.CurrentDoor == 3)
+            DoorToSpawnPlayer = DoorTrigger3.gameObject;
+
+        if(DoorToSpawnPlayer != null)
+        {
+            MainChar.Instance.GetComponent<CharacterController>().enabled = false;
+            MainChar.Instance.transform.position = DoorToSpawnPlayer.transform.position + new Vector3(0.25f, 0.15f, -4.78f);
+            MainChar.Instance.transform.rotation = Quaternion.Euler(0, 140, 0);
+            MainChar.Instance.GetComponent<CharacterController>().enabled = true;
+        }
     }
 
     private void Update()
