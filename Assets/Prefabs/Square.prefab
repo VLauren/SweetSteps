@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PressedEmission: {r: 0.8235295, g: 1, b: 0.63529414, a: 0}
+  PressedColor: {r: 0.8235295, g: 1, b: 0.63529414, a: 1}

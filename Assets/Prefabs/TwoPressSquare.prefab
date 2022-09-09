@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780b848f16205e344a98a9dfe7639ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PressedEmission: {r: 0.006127556, g: 0.0627451, b: 0, a: 0}
-  SecondPressEmission: {r: 0, g: 0, b: 0.0627451, a: 0}
+  PressedColor: {r: 0.36585373, g: 0.9121951, b: 1, a: 1}
+  SecondPressColor: {r: 0.8235294, g: 1, b: 0.63529414, a: 1}

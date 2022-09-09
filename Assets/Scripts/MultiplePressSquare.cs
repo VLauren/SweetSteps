@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MultiplePressSquare : Square
 {
-    public Color SecondPressEmission;
+    public Color SecondPressColor;
 
     int pressAmount;
 
@@ -33,12 +33,15 @@ public class MultiplePressSquare : Square
             Pressed = true;
             Level.OnSquarePressed(this);
 
-            GetComponent<Renderer>().material.SetColor("_EmissionColor", SecondPressEmission);
-            GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            Color StartColor = GetComponent<Renderer>().material.color;
+            float lerpAlfa = 0;
 
             Vector3 targetPosition = transform.position + Vector3.down * 0.1f;
             while (transform.position != targetPosition)
             {
+                lerpAlfa = Mathf.MoveTowards(lerpAlfa, 1, Time.deltaTime / 0.1f);
+                GetComponent<Renderer>().material.color = Color.Lerp(StartColor, SecondPressColor, lerpAlfa);
+
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
                 yield return null;
             }

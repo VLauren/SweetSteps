@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Square : MonoBehaviour
 {
-    public Color PressedEmission;
+    public Color PressedColor;
 
     protected bool Pressed;
     protected bool TryPress;
@@ -63,13 +63,19 @@ public class Square : MonoBehaviour
         Level.OnSquarePressed(this);
 
         // GetComponent<Renderer>().material.color = Color.white;
-        GetComponent<Renderer>().material.color = Color.black;
-        GetComponent<Renderer>().material.SetColor("_EmissionColor", PressedEmission);
-        GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        // GetComponent<Renderer>().material.color = Color.black;
+        // GetComponent<Renderer>().material.SetColor("_EmissionColor", PressedEmission);
+        // GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+
+        Color StartColor = GetComponent<Renderer>().material.color;
+        float lerpAlfa = 0;
 
         Vector3 targetPosition = transform.position + Vector3.down * 0.1f;
         while(transform.position != targetPosition)
         {
+            lerpAlfa = Mathf.MoveTowards(lerpAlfa, 1, Time.deltaTime / 0.1f);
+            GetComponent<Renderer>().material.color = Color.Lerp(StartColor, PressedColor, lerpAlfa);
+
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
             yield return null;
         }
