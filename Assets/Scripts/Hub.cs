@@ -46,6 +46,8 @@ public class Hub : MonoBehaviour
             MainChar.Instance.transform.rotation = Quaternion.Euler(0, 140, 0);
             MainChar.Instance.GetComponent<CharacterController>().enabled = true;
         }
+
+        FadeUI.FadeIn();
     }
 
     private void Update()

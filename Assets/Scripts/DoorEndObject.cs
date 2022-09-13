@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class DoorEndObject : MonoBehaviour
 {
+    void Start()
+    {
+        FadeUI.FadeIn(0.5f);
+    }
+
     void Update()
     {
         transform.Find("Model").Rotate(0, Time.deltaTime * 90, 0, Space.World);
@@ -14,9 +19,22 @@ public class DoorEndObject : MonoBehaviour
     {
         if (other.GetComponent<MainChar>() != null)
         {
-            // Cargar escena de hub
-            SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
+            StartCoroutine(BackToHub());
         }
+    }
+
+    IEnumerator BackToHub()
+    {
+        FadeUI.FadeOut(0.5f);
+
+        MainChar.DisableControl();
+
+        yield return new WaitForSeconds(0.5f);
+
+        MainChar.EnableControl();
+
+        // Cargar escena de hub
+        SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
     }
 
     void OnDrawGizmos()

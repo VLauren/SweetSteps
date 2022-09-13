@@ -8,6 +8,8 @@ public class MainChar : MonoBehaviour
 {
     public static MainChar Instance { get; private set; }
 
+    static bool ControlEnabled = true;
+
     [SerializeField] float MovementSpeed = 4;
     [SerializeField] float RotationSpeed = 360;
     [SerializeField] float Gravity = 20;
@@ -34,6 +36,12 @@ public class MainChar : MonoBehaviour
 
     void Update()
     {
+        if(!ControlEnabled)
+        {
+            InputDirection = Vector3.zero;
+            JumpPressed = false;
+        }
+
         ControlMovement = Vector3.zero;
         ControlMovement = InputDirection * Time.deltaTime * MovementSpeed;
 
@@ -95,5 +103,15 @@ public class MainChar : MonoBehaviour
     void OnJump(InputValue _value)
     {
         JumpPressed = true;
+    }
+
+    public static void DisableControl()
+    {
+        ControlEnabled = false;
+    }
+
+    public static void EnableControl()
+    {
+        ControlEnabled = true;
     }
 }

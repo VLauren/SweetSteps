@@ -28,16 +28,26 @@ public class Level : MonoBehaviour
     [TextArea(15,10)]
     public List<string> LevelList;
 
-    [Space()]
-    public GameObject DebugEndText;
-
     public Vector3 LevelCenter { get; private set; }
 
     List<Square> Squares;
     static int LevelListIndex = 0;
 
-    public static void NextLevel()
+    public static void NextLevel(float _transitionTime = 0.5f)
     {
+        Instance.StartCoroutine(Instance.NextLevelRoutine(_transitionTime));
+    }
+
+    IEnumerator NextLevelRoutine(float _transitionTime)
+    {
+        FadeUI.FadeOut(_transitionTime);
+
+        MainChar.DisableControl();
+
+        yield return new WaitForSeconds(_transitionTime);
+
+        MainChar.EnableControl();
+
         if(LevelEditor.EditorMode)
         {
             SceneManager.LoadScene("EditorScene");
@@ -64,14 +74,11 @@ public class Level : MonoBehaviour
     {
         var keyboard = Keyboard.current;
         if (keyboard.nKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
-            NextLevel();
+            NextLevel(0.1f);
     }
 
     void Start()
     {
-        if (LevelListIndex >= 9)
-            Instance.DebugEndText.SetActive(true);
-
         if (GenerateRandomLevel)
         {
             int xSize = Random.Range(1, 6);
@@ -114,6 +121,8 @@ public class Level : MonoBehaviour
 
         if (!DontSpawn)
             SpawnLevel(LevelToSpawn);
+
+        FadeUI.FadeIn(0.5f);
     }
 
     public static void AddSquare(Square _square)
