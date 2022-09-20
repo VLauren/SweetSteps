@@ -1,4 +1,2 @@
-- al pulsar justo y no seguir avanzando se dispara ontriggerexit y desaparece la plataforma sin haber subido
-	- posible sol: cambiar colision de trigger a cubo o cilindro, o check con raycast, o con posicion directamente, o con in grounded
-	- dejarlo igual pero triger super alto y pulsar solo si grounded, algo asi
-- 
+
+- se puede pasar por detrás del muro del final y activar el trigger de fin de nivel sin haber abierto la puerta

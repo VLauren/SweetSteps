@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa24365646b3ca42a89e387a82268f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SquarePrefab: {fileID: 7337594810565066222, guid: a1c71f51abeccb74da49e4172f765b78, type: 3}
+  SquarePrefab: {fileID: 5838553799927681451, guid: 2199b050a91ca8d49b08b8ac8f7df361, type: 3}
   TwoPressSquarePrefab: {fileID: 1447607313312359435, guid: bb6947414bc528f42b2b2ba52a4970cc, type: 3}
   LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
   LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
@@ -185,7 +185,6 @@ MonoBehaviour:
     0
 
     0'
-  DebugEndText: {fileID: 827863929}
 --- !u!4 &510140328
 Transform:
   m_ObjectHideFlags: 0
