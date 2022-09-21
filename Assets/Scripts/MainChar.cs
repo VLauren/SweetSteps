@@ -66,6 +66,8 @@ public class MainChar : MonoBehaviour
                 Animator.SetBool("Grounded", false);
                 VerticalVelocity = JumpStrength;
                 JumpPressed = false;
+
+                Effects.SpawnEffect(1, transform.Find("Model").position);
             }
             else
             {
