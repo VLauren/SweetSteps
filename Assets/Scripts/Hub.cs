@@ -48,6 +48,13 @@ public class Hub : MonoBehaviour
         }
 
         FadeUI.FadeIn();
+
+        if (GameData.ShowDoorCompleteAnim == 1)
+            StartCoroutine(DoorCompleteAnimation(DoorTrigger1.gameObject));
+        if(GameData.ShowDoorCompleteAnim == 2)
+            StartCoroutine(DoorCompleteAnimation(DoorTrigger2.gameObject));
+        if(GameData.ShowDoorCompleteAnim == 3)
+            StartCoroutine(DoorCompleteAnimation(DoorTrigger3.gameObject));
     }
 
     private void Update()
@@ -63,5 +70,26 @@ public class Hub : MonoBehaviour
             GameData.SetWorld(GameData.CurrentWorld - 1);
             SceneManager.LoadScene("HubScene" + (GameData.CurrentWorld == 1 ? 1 : 2));
         }
+    }
+
+    IEnumerator DoorCompleteAnimation(GameObject _doorTrigger)
+    {
+        GameData.ShowDoorCompleteAnim = 0;
+        DoorCompleteIndicator dci = _doorTrigger.transform.parent.Find("DoorCompleteIndicator").GetComponent<DoorCompleteIndicator>();
+
+        yield return null;
+
+        dci.GetComponent<Renderer>().material = dci.OGMaterial;
+        MainChar.DisableControl();
+
+        yield return new WaitForSeconds(1);
+
+        Effects.SpawnEffect(2, dci.transform.position);
+
+        dci.GetComponent<Renderer>().material = dci.CompletedMaterial;
+
+        yield return new WaitForSeconds(.5f);
+
+        MainChar.EnableControl();
     }
 }

@@ -55,13 +55,13 @@ public class Level : MonoBehaviour
         else if (GameData.CurrentLevel >= LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor))
         {
             GameData.SetDoorComplete(GameData.CurrentWorld, GameData.CurrentDoor);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("DoorEndScene");
         }
         else
         {
             GameData.CurrentLevel++;
             Level.LevelToSpawn = LevelsData.GetLevelData(GameData.CurrentWorld, GameData.CurrentDoor, GameData.CurrentLevel);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("LevelPlayScene");
         }
     }
 

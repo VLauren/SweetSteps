@@ -10,9 +10,12 @@ public class DoorCompleteIndicator : MonoBehaviour
     public bool ThisWorld;
 
     public Material CompletedMaterial;
+    public Material OGMaterial;
 
     void Start()
     {
+        OGMaterial = GetComponent<Renderer>().material;
+
         if (ThisWorld)
             World = GameData.CurrentWorld;
 

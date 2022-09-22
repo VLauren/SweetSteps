@@ -10,6 +10,8 @@ public static class GameData
     public static int CurrentDoor = 1;
     public static int CurrentLevel;
 
+    public static int ShowDoorCompleteAnim = 0;
+
     public static bool IsWorldUnlocked(int _world)
     {
         // El mundo 1 siempre está debloqueado
@@ -63,6 +65,9 @@ public static class GameData
             CompletedDoors = new Dictionary<int, bool[]>();
         if (!CompletedDoors.ContainsKey(_world))
             CompletedDoors.Add(_world, new bool[3]);
+
+        if (!CompletedDoors[_world][_door - 1])
+            ShowDoorCompleteAnim = CurrentDoor;
 
         CompletedDoors[_world][_door - 1] = true;
     }
