@@ -491,6 +491,7 @@ MonoBehaviour:
   Door: 1
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &108282869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -702,6 +703,7 @@ MonoBehaviour:
   Door: 1
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &219136412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -816,6 +818,7 @@ MonoBehaviour:
   Door: 1
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &234930806
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -930,6 +933,7 @@ MonoBehaviour:
   Door: 3
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &274103046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1173,6 +1177,7 @@ MonoBehaviour:
   Door: 2
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &416100387
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1287,6 +1292,7 @@ MonoBehaviour:
   Door: 2
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &464536823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1498,6 +1504,7 @@ MonoBehaviour:
   Door: 2
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &506284551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1822,6 +1829,7 @@ MonoBehaviour:
   Door: 3
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!1 &639436536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,6 +2553,7 @@ MonoBehaviour:
   Door: 3
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &987948412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2756,6 +2765,7 @@ MonoBehaviour:
   Door: 1
   ThisWorld: 1
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &1081480455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2871,6 +2881,7 @@ MonoBehaviour:
   Door: 3
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &1228643736
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2985,6 +2996,7 @@ MonoBehaviour:
   Door: 3
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &1259733267
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3379,6 +3391,7 @@ MonoBehaviour:
   Door: 3
   ThisWorld: 0
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &1476990599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3513,7 +3526,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Under construction
+  m_Text: En desarrollo
 --- !u!222 &1527443320
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4859,6 +4872,7 @@ MonoBehaviour:
   Door: 3
   ThisWorld: 1
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &2060880313
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4973,6 +4987,7 @@ MonoBehaviour:
   Door: 2
   ThisWorld: 1
   CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  OGMaterial: {fileID: 0}
 --- !u!65 &2112408064
 BoxCollider:
   m_ObjectHideFlags: 0

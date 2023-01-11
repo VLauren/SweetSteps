@@ -55,6 +55,20 @@ public class Hub : MonoBehaviour
             StartCoroutine(DoorCompleteAnimation(DoorTrigger2.gameObject));
         if(GameData.ShowDoorCompleteAnim == 3)
             StartCoroutine(DoorCompleteAnimation(DoorTrigger3.gameObject));
+
+
+        // ==================
+        // Hack para builds, arrancar en nivel 1
+
+        if(!GameData.IsDoorUnlocked(1, 2))
+        {
+            GameData.CurrentWorld = 1;
+            GameData.CurrentDoor = 1;
+            GameData.CurrentLevel = 1;
+
+            Level.LevelToSpawn = LevelsData.GetLevelData(1, 1, 1);
+            SceneManager.LoadScene("LevelPlayScene");
+        }
     }
 
     private void Update()

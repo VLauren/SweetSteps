@@ -13,11 +13,29 @@ public class WorldTeleporterTrigger : MonoBehaviour
         {
             if(GameData.IsWorldUnlocked(World) && World != GameData.CurrentWorld)
             {
-                GameData.CurrentDoor = 0;
-                GameData.SetWorld(World);
-                SceneManager.LoadScene("HubScene" + (World == 1 ? 1 : 2));
+                // GameData.CurrentDoor = 0;
+                // GameData.SetWorld(World);
+                // SceneManager.LoadScene("HubScene" + (World == 1 ? 1 : 2));
+
+                StartCoroutine(DoWorldChange());
             }
         }
+    }
+
+
+    IEnumerator DoWorldChange()
+    {
+        FadeUI.FadeOut(0.5f);
+
+        MainChar.DisableControl();
+
+        yield return new WaitForSeconds(0.5f);
+
+        MainChar.EnableControl();
+
+        GameData.CurrentDoor = 0;
+        GameData.SetWorld(World);
+        SceneManager.LoadScene("HubScene" + (World == 1 ? 1 : 2));
     }
 
     void OnDrawGizmos()

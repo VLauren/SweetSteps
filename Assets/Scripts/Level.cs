@@ -13,6 +13,8 @@ public class Level : MonoBehaviour
     public GameObject TwoPressSquarePrefab;
     public GameObject LevelStartPrefab;
     public GameObject LevelEndPrefab;
+    public List<GameObject> LevelStartPrefabs;
+    public List<GameObject> LevelEndPrefabs;
     public GameObject WallPrefab;
 
     [Space()]
@@ -185,11 +187,15 @@ public class Level : MonoBehaviour
             }
         }
 
-        GameObject levelStart = Instantiate(LevelStartPrefab, new Vector3(-3f + xSize * 1.5f, 0, -4.5f), Quaternion.identity);
-        GameObject levelEnd = Instantiate(LevelEndPrefab, new Vector3(-3f + xSize * 1.5f, 0, -4.5f + 3f * (ySize + 1)), Quaternion.identity);
+        // Instanciar inicio y fin de nivel según ancho del nivel
+        // GameObject levelStart = Instantiate(LevelStartPrefab, new Vector3(-3f + xSize * 1.5f, 0, -4.5f), Quaternion.identity);
+        // GameObject levelEnd = Instantiate(LevelEndPrefab, new Vector3(-3f + xSize * 1.5f, 0, -4.5f + 3f * (ySize + 1)), Quaternion.identity);
 
-        levelStart.transform.localScale = new Vector3(3 * xSize - 0.2f, levelStart.transform.localScale.y, levelStart.transform.localScale.z);
-        levelEnd.transform.Find("Floor").localScale = new Vector3(3 * xSize - 0.2f, levelEnd.transform.Find("Floor").localScale.y, levelEnd.transform.Find("Floor").localScale.z);
+        GameObject levelStart = Instantiate(LevelStartPrefabs[xSize-1], new Vector3(-3f + xSize * 1.5f, 0, -4.5f), Quaternion.identity);
+        GameObject levelEnd = Instantiate(LevelEndPrefabs[xSize-1], new Vector3(-3f + xSize * 1.5f, 0, -4.5f + 3f * (ySize + 1)), Quaternion.identity);
+
+        // levelStart.transform.localScale = new Vector3(3 * xSize - 0.2f, levelStart.transform.localScale.y, levelStart.transform.localScale.z);
+        // levelEnd.transform.Find("Floor").localScale = new Vector3(3 * xSize - 0.2f, levelEnd.transform.Find("Floor").localScale.y, levelEnd.transform.Find("Floor").localScale.z);
 
         LevelCenter = new Vector3(-3 + 1.5f * xSize, 0, -3 + 1.5f * ySize);
 
