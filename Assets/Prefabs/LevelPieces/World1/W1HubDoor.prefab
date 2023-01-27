@@ -159,7 +159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  - {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -294,7 +294,7 @@ MonoBehaviour:
   World: 0
   Door: 1
   ThisWorld: 1
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!1 &1832065602756875403
 GameObject:

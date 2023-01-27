@@ -173,7 +173,7 @@ MonoBehaviour:
   World: 3
   Door: 1
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &108282869
 BoxCollider:
@@ -293,7 +293,7 @@ MonoBehaviour:
   World: 1
   Door: 1
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &219136412
 BoxCollider:
@@ -408,7 +408,7 @@ MonoBehaviour:
   World: 2
   Door: 1
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &234930806
 BoxCollider:
@@ -523,7 +523,7 @@ MonoBehaviour:
   World: 1
   Door: 3
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &274103046
 BoxCollider:
@@ -739,7 +739,7 @@ MonoBehaviour:
   World: 1
   Door: 2
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &416100387
 BoxCollider:
@@ -854,7 +854,7 @@ MonoBehaviour:
   World: 3
   Door: 2
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &464536823
 BoxCollider:
@@ -969,7 +969,7 @@ MonoBehaviour:
   World: 2
   Door: 2
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &506284551
 BoxCollider:
@@ -1051,7 +1051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 818233899790067717, guid: 0a5738116d25f304394c0eb8611afea0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.31
+      value: 23.39
       objectReference: {fileID: 0}
     - target: {fileID: 818233899790067717, guid: 0a5738116d25f304394c0eb8611afea0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1059,7 +1059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 818233899790067717, guid: 0a5738116d25f304394c0eb8611afea0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.29
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 818233899790067717, guid: 0a5738116d25f304394c0eb8611afea0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   World: 1
   Door: 3
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!114 &642472769 stripped
 MonoBehaviour:
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   World: 2
   Door: 3
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &987948412
 BoxCollider:
@@ -2025,7 +2025,7 @@ MonoBehaviour:
   World: 2
   Door: 3
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &1228643736
 BoxCollider:
@@ -2140,7 +2140,7 @@ MonoBehaviour:
   World: 3
   Door: 3
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &1259733267
 BoxCollider:
@@ -2438,7 +2438,7 @@ MonoBehaviour:
   World: 3
   Door: 3
   ThisWorld: 0
-  CompletedMaterial: {fileID: 2100000, guid: 822485bf18181774fba18c1e0f38f868, type: 2}
+  CompletedMaterial: {fileID: 2100000, guid: ad28f2de72179bc42ac0cabfa4a41e50, type: 2}
   OGMaterial: {fileID: 0}
 --- !u!65 &1476990599
 BoxCollider:

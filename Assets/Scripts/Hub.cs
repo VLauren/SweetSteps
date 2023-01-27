@@ -91,6 +91,8 @@ public class Hub : MonoBehaviour
         GameData.ShowDoorCompleteAnim = 0;
         DoorCompleteIndicator dci = _doorTrigger.transform.parent.Find("DoorCompleteIndicator").GetComponent<DoorCompleteIndicator>();
 
+        // TODO añadir efecto para puerta también
+
         yield return null;
 
         dci.GetComponent<Renderer>().material = dci.OGMaterial;
