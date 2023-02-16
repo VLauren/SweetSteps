@@ -176,7 +176,7 @@ public class LevelEditor : MonoBehaviour
                 foreach (var element in column.Value)
                     element.Value.SetActive(false);
 
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("LevelPlayScene");
         }
 
         if (kb.sKey.wasPressedThisFrame)
