@@ -28,7 +28,8 @@ public class LevelEditor : MonoBehaviour
 
     void Start()
     {
-        EditorCursor = Instantiate(CursorPrefab).transform;
+        // EditorCursor = Instantiate(CursorPrefab).transform;
+        EditorCursor = Instantiate(SquarePrefab).transform;
 
         EditorMode = true;
 

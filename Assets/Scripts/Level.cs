@@ -63,6 +63,9 @@ public class Level : MonoBehaviour
         {
             GameData.CurrentLevel++;
             Level.LevelToSpawn = LevelsData.GetLevelData(GameData.CurrentWorld, GameData.CurrentDoor, GameData.CurrentLevel);
+
+            print(GameData.CurrentWorld + " " + GameData.CurrentDoor + " " + GameData.CurrentLevel);
+
             SceneManager.LoadScene("LevelPlayScene");
         }
     }
@@ -77,6 +80,8 @@ public class Level : MonoBehaviour
         var keyboard = Keyboard.current;
         if (keyboard.nKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
             NextLevel(0.1f);
+        if (keyboard.escapeKey.wasPressedThisFrame)
+            SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
     }
 
     void Start()
