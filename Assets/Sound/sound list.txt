@@ -1,0 +1,11 @@
+
+	- casilla pulsada
+	- casilla desaparece
+	- puerta se abre
+	- morir/iniciar nivel
+	- cruzar puerta (puede no se nada y solo se oye lo anterior)
+	- pasos
+	- salto
+	- tomar cuadrado
+	- efecto cuadrado desbloqueo
+	- entrar en puerta/teletransportador

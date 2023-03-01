@@ -1,2 +1,2 @@
 
-- se puede pasar por detrás del muro del final y activar el trigger de fin de nivel sin haber abierto la puerta
+- se puede flotar apoyandose de forma precisa en una casilla
