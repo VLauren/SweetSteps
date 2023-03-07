@@ -44,6 +44,9 @@ public class Square : MonoBehaviour
     {
         Level.OnSquareUnpressed(this);
         Level.RemoveSquare(this);
+
+        AudioManager.Play("release_switch_007", false);
+
         Destroy(gameObject);
     }
 
@@ -79,5 +82,8 @@ public class Square : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
             yield return null;
         }
+
+        AudioManager.Play("press_bong_001", false);
+
     }
 }
