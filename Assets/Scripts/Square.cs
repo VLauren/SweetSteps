@@ -6,6 +6,9 @@ public class Square : MonoBehaviour
 {
     public Color PressedColor;
 
+    public string PressSound;
+    public string ReleaseSound;
+
     protected bool Pressed;
     protected bool TryPress;
 
@@ -45,7 +48,7 @@ public class Square : MonoBehaviour
         Level.OnSquareUnpressed(this);
         Level.RemoveSquare(this);
 
-        AudioManager.Play("release_switch_007", false);
+        AudioManager.Play(ReleaseSound, false);
 
         Destroy(gameObject);
     }
@@ -70,6 +73,8 @@ public class Square : MonoBehaviour
         // GetComponent<Renderer>().material.SetColor("_EmissionColor", PressedEmission);
         // GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
 
+        AudioManager.Play(PressSound, false);
+
         Color StartColor = GetComponent<Renderer>().material.color;
         float lerpAlfa = 0;
 
@@ -82,8 +87,5 @@ public class Square : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
             yield return null;
         }
-
-        AudioManager.Play("press_bong_001", false);
-
     }
 }

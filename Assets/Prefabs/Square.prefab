@@ -124,5 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e02d20c1a8af53498801e8df4d5ee49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PressedEmission: {r: 0.8235295, g: 1, b: 0.63529414, a: 0}
   PressedColor: {r: 0.8235295, g: 1, b: 0.63529414, a: 1}
+  PressSound: release_switch_007
+  ReleaseSound: press_glass_004
+  PressSoundDelay: 0

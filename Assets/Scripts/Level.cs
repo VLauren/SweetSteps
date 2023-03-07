@@ -18,6 +18,9 @@ public class Level : MonoBehaviour
     public GameObject WallPrefab;
 
     [Space()]
+    public string DoorOpenSound;
+
+    [Space()]
     public bool GenerateRandomLevel;
     public bool UseLevelList;
     public bool DontSpawn;
@@ -29,6 +32,7 @@ public class Level : MonoBehaviour
     [Space()]
     [TextArea(15,10)]
     public List<string> LevelList;
+
 
     public Vector3 LevelCenter { get; private set; }
 
@@ -150,8 +154,9 @@ public class Level : MonoBehaviour
         // Condicion de victoria provisional
         if (Instance.Squares.Count == 0)
         {
-            // SceneManager.LoadScene(0);
             LevelEnd.Instance.OpenExit();
+
+            AudioManager.Play(Instance.DoorOpenSound, false);
         }
     }
 
