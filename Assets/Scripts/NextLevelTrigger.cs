@@ -10,6 +10,7 @@ public class NextLevelTrigger : MonoBehaviour
         if(other.GetComponent<MainChar>() != null)
         {
             Level.NextLevel();
+            AudioManager.Play("door_powerUp8", false);
         }
     }
 

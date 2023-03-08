@@ -29,6 +29,8 @@ public class DoorEndObject : MonoBehaviour
 
         MainChar.DisableControl();
 
+        AudioManager.Play("doorEnd_jingles_PIZZI02", false);
+
         yield return new WaitForSeconds(0.5f);
 
         MainChar.EnableControl();

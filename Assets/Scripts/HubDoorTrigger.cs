@@ -32,6 +32,8 @@ public class HubDoorTrigger : MonoBehaviour
 
         MainChar.DisableControl();
 
+        AudioManager.Play("door_powerUp8", false);
+
         yield return new WaitForSeconds(0.5f);
 
         MainChar.EnableControl();

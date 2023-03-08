@@ -104,6 +104,8 @@ public class Hub : MonoBehaviour
 
         dci.GetComponent<Renderer>().material = dci.CompletedMaterial;
 
+        AudioManager.Play("unlock_confirmation_002", false);
+
         yield return new WaitForSeconds(.5f);
 
         MainChar.EnableControl();

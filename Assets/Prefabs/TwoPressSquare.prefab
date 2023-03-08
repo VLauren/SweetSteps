@@ -125,4 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PressedColor: {r: 0.36585373, g: 0.9121951, b: 1, a: 1}
+  PressSound: release_switch_007
+  ReleaseSound: press_glass_004
   SecondPressColor: {r: 0.8235294, g: 1, b: 0.63529414, a: 1}

@@ -68,6 +68,8 @@ public class MainChar : MonoBehaviour
                 JumpPressed = false;
 
                 Effects.SpawnEffect(1, transform.Find("Model").position);
+
+                AudioManager.Play("footstep_concrete_00" + Random.Range(0, 5), false);
             }
             else
             {
@@ -85,8 +87,13 @@ public class MainChar : MonoBehaviour
         GetComponent<CharacterController>().Move(ControlMovement + new Vector3(0, VerticalVelocity * Time.deltaTime, 0));
 
         // Perder por caida
-        if(transform.position.y < -5)
+        if (transform.position.y < -5)
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            AudioManager.Play("fall_lowRandom", false);
+            AudioManager.Play("fall_question_001", false);
+        }
 
         // ----------------------------------
 

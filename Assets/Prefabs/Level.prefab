@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5606770498218178641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5606770498218178655}
+  - component: {fileID: 5606770498218178640}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5606770498218178655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606770498218178641}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5606770498218178640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606770498218178641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa24365646b3ca42a89e387a82268f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquarePrefab: {fileID: 7521123272857963088, guid: 069274e1ce9177244a6d1667958ee884, type: 3}
+  TwoPressSquarePrefab: {fileID: 1447607313312359435, guid: bb6947414bc528f42b2b2ba52a4970cc, type: 3}
+  LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
+  LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
+  LevelStartPrefabs:
+  - {fileID: 6263576368400074612, guid: a1e63512578c57148a6f944ca69a188b, type: 3}
+  - {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
+  - {fileID: 6263576368400074612, guid: d0c94475b3c95554d9cb2a1fe95ee452, type: 3}
+  - {fileID: 6263576368400074612, guid: bc37bfc3cb493f341bfabf37e5009a04, type: 3}
+  - {fileID: 6263576368400074612, guid: 2db495fa37ca77c469b9a50427e31af2, type: 3}
+  - {fileID: 6263576368400074612, guid: 1c3aa2ebf5c88ed4a9e7a4f607496f93, type: 3}
+  LevelEndPrefabs:
+  - {fileID: 818233899790067716, guid: 75e6c2da4fedc0b4ebc01d1e64e8d20b, type: 3}
+  - {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
+  - {fileID: 818233899790067716, guid: 4ebbc93b6957dc7408eb8aa7e6d6a3d5, type: 3}
+  - {fileID: 818233899790067716, guid: f856ef9dde1d116459935332165420d5, type: 3}
+  - {fileID: 818233899790067716, guid: 0a5738116d25f304394c0eb8611afea0, type: 3}
+  - {fileID: 818233899790067716, guid: 6b5ff76cbbddcf84fad8811a1ac4eeda, type: 3}
+  WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
+  DoorOpenSound: open_jingles_PIZZI10
+  GenerateRandomLevel: 0
+  UseLevelList: 0
+  DontSpawn: 0
+  LevelList:
+  - '3x1
+
+    012'
+  - 5x5;11011;11011;11111;11111;00100;-----;-----;-----;-----;-----;-----;------;-w--w-;-w--w-;------;------
+  - 3x3;111;010;111
+  - 3x2;101;101
+  - 2x4;01;01;10;10
+  - 3x3;101;010;101
+  - 4x3;1101;1101;1101
+  - 4x2;1111;1111;----;-ww-;----;-----;-----
+  - 4x4;1001;1001;1111;1001
+  - '1x6
+
+    0
+
+    0
+
+    0
+
+    0
+
+    0
+
+    0'

@@ -45,6 +45,8 @@ public class MultiplePressSquare : Square
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
                 yield return null;
             }
+
+            AudioManager.Play(PressSound, false);
         }
     }
 

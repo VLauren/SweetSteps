@@ -8,4 +8,5 @@
 	- salto
 	- tomar cuadrado
 	- efecto cuadrado desbloqueo
+
 	- entrar en puerta/teletransportador
