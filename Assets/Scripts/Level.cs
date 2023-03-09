@@ -47,6 +47,7 @@ public class Level : MonoBehaviour
     IEnumerator NextLevelRoutine(float _transitionTime)
     {
         FadeUI.FadeOut(_transitionTime);
+        AudioManager.Play("fade_FXSweeper1", false, 0.8f);
 
         MainChar.DisableControl();
 

@@ -26,6 +26,7 @@ public class WorldTeleporterTrigger : MonoBehaviour
     IEnumerator DoWorldChange()
     {
         FadeUI.FadeOut(0.5f);
+        AudioManager.Play("fade_FXSweeper1", false, 0.8f);
 
         MainChar.DisableControl();
 
