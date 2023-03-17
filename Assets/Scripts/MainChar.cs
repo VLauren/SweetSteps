@@ -106,6 +106,7 @@ public class MainChar : MonoBehaviour
 
     void OnMove(InputValue _value)
     {
+        print(_value.Get<Vector2>());
         InputDirection = new Vector3(_value.Get<Vector2>().x, 0, _value.Get<Vector2>().y);
     }
 
