@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 3
-  RotationSpeed: 360
+  RotationSpeed: 720
   Gravity: 15
   JumpStrength: 5
 --- !u!114 &1685588744006292419

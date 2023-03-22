@@ -28,7 +28,7 @@ public class MultiplePressSquare : Square
         {
             yield return base.Press();
         }
-        else
+        else if(Level.Instance.LastPressedSquare != this)
         {
             Pressed = true;
             Level.OnSquarePressed(this);

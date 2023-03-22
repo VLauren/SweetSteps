@@ -8,6 +8,11 @@ public class Level : MonoBehaviour
 {
     public static Level Instance { get; private set; }
 
+    static int LevelListIndex = 0;
+
+    public bool IsASquarePressed { get; private set; }
+    public Square LastPressedSquare { get; private set; }
+
     [Header("Instantiation Prefabs")]
     public GameObject SquarePrefab;
     public GameObject TwoPressSquarePrefab;
@@ -33,11 +38,10 @@ public class Level : MonoBehaviour
     [TextArea(15,10)]
     public List<string> LevelList;
 
-
     public Vector3 LevelCenter { get; private set; }
 
+
     List<Square> Squares;
-    static int LevelListIndex = 0;
 
     public static void NextLevel(float _transitionTime = 0.5f)
     {
@@ -274,11 +278,10 @@ public class Level : MonoBehaviour
 
     }
 
-    public bool IsASquarePressed { get; private set; }
-
     public static void OnSquarePressed(Square _square)
     {
         Instance.IsASquarePressed = true;
+        Instance.LastPressedSquare = _square;
     }
 
     public static void OnSquareUnpressed(Square _square)
