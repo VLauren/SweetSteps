@@ -1597,13 +1597,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: b8c99b8b5ef5ab946815a431f8041889, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4714817154256824709, guid: b8c99b8b5ef5ab946815a431f8041889, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b8c99b8b5ef5ab946815a431f8041889, type: 3}
       propertyPath: m_Name
       value: casita
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b8c99b8b5ef5ab946815a431f8041889, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b8c99b8b5ef5ab946815a431f8041889, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821623529969584324, guid: b8c99b8b5ef5ab946815a431f8041889, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c99b8b5ef5ab946815a431f8041889, type: 3}
