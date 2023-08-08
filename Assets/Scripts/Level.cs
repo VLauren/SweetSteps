@@ -87,10 +87,12 @@ public class Level : MonoBehaviour
     private void Update()
     {
         var keyboard = Keyboard.current;
-        if (keyboard.nKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
-            NextLevel(0.1f);
         if (keyboard.escapeKey.wasPressedThisFrame)
             SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
+
+        // DEBUG
+        if (keyboard.nKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
+            NextLevel(0.1f);
     }
 
     void Start()
@@ -287,5 +289,13 @@ public class Level : MonoBehaviour
     public static void OnSquareUnpressed(Square _square)
     {
         Instance.IsASquarePressed = false;
+        OnGameAction();
+    }
+
+    public static void OnGameAction()
+    {
+        Debug.Log("Level: OnGameAction");
+        foreach (var sq in Instance.Squares)
+            sq.SendMessage("OnGameAction");
     }
 }

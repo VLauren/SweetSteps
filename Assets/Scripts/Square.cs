@@ -88,4 +88,9 @@ public class Square : MonoBehaviour
             yield return null;
         }
     }
+
+    protected virtual void OnGameAction()
+    {
+
+    }
 }

@@ -60,13 +60,13 @@ public class Hub : MonoBehaviour
         // ==================
         // Hack para builds, arrancar en nivel 1
 
-        if(!GameData.IsDoorUnlocked(1, 2))
+        if(!GameData.IsDoorUnlocked(1, 1))
         {
             GameData.CurrentWorld = 1;
-            GameData.CurrentDoor = 1;
+            GameData.CurrentDoor = 2;
             GameData.CurrentLevel = 1;
 
-            Level.LevelToSpawn = LevelsData.GetLevelData(1, 1, 1);
+            Level.LevelToSpawn = LevelsData.GetLevelData(1, 2, 1);
             SceneManager.LoadScene("LevelPlayScene");
         }
     }
