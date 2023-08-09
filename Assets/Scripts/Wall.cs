@@ -9,13 +9,15 @@ public class Wall : MonoBehaviour
 
     void Start()
     {
-        CharCC = FindObjectOfType<MainChar>().GetComponent<CharacterController>();
+        if (FindObjectOfType<MainChar>() != null)
+            CharCC = FindObjectOfType<MainChar>().GetComponent<CharacterController>();
         ExtraCollision = transform.Find("ExtraCollision").gameObject;
     }
 
     void Update()
     {
-        ExtraCollision.SetActive(!CharCC.isGrounded);
+        if (CharCC != null && ExtraCollision != null)
+            ExtraCollision.SetActive(!CharCC.isGrounded);
     }
 
     // void OnTriggerEnter(Collider other)

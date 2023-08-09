@@ -127,3 +127,5 @@ MonoBehaviour:
   PressedColor: {r: 0.3647059, g: 0.91372555, b: 1, a: 1}
   PressSound: release_switch_007
   ReleaseSound: press_glass_004
+  Pressable: 0
+  NonPressableColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}

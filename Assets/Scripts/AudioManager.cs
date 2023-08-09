@@ -30,6 +30,9 @@ public class AudioManager : MonoBehaviour
 
     public static void Play(string _name, bool _loop, float _volume = 0.5f)
     {
+        if (!source)
+            return;
+
         AudioClip clip = Resources.Load<AudioClip>(_name);
 
         if (!_loop)

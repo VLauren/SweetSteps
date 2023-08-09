@@ -12,6 +12,7 @@ public class LevelEditor : MonoBehaviour
     [Header("Prefabs")]
     public GameObject SquarePrefab;
     public GameObject TwoPressSquarePrefab;
+    public GameObject AlternatingSquarePrefab;
     public GameObject LevelStartPrefab;
     public GameObject LevelEndPrefab;
     public GameObject WallPrefab;
@@ -125,6 +126,18 @@ public class LevelEditor : MonoBehaviour
         {
             Destroy(EditorCursor.gameObject);
             EditorCursor = Instantiate(WallPrefab, EditorCursor.transform.position, Quaternion.Euler(0, 90, 0)).transform;
+        }
+        if(kb.aKey.wasPressedThisFrame)
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(AlternatingSquarePrefab, EditorCursor.transform.position, Quaternion.Euler(0, 90, 0)).transform;
+            EditorCursor.GetComponent<AlternatingSquare>().Pressable = true;
+        }
+        if(kb.bKey.wasPressedThisFrame)
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(AlternatingSquarePrefab, EditorCursor.transform.position, Quaternion.Euler(0, 90, 0)).transform;
+            EditorCursor.GetComponent<AlternatingSquare>().Pressable = false;
         }
 
         // Colocar

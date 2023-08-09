@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class AlternatingSquare : Square
 {
+    public bool Pressable;
+
+    public Color NonPressableColor;
+
+    void Start()
+    {
+        if (!Pressable)
+            GetComponent<Renderer>().material.color = NonPressableColor;
+    }
 
     protected override void StopPress()
     {

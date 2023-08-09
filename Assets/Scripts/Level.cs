@@ -16,6 +16,7 @@ public class Level : MonoBehaviour
     [Header("Instantiation Prefabs")]
     public GameObject SquarePrefab;
     public GameObject TwoPressSquarePrefab;
+    public GameObject AlternatingSquarePrefab;
     public GameObject LevelStartPrefab;
     public GameObject LevelEndPrefab;
     public List<GameObject> LevelStartPrefabs;
@@ -201,6 +202,12 @@ public class Level : MonoBehaviour
                 // Si es 2, casilla de pulsar dos veces
                 if (grid[j, i] == '2')
                     Instantiate(TwoPressSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
+                // Si es a, casilla que alterna A
+                if (grid[j, i] == 'a')
+                    Instantiate(AlternatingSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<AlternatingSquare>().Pressable = true;
+                // Si es b, casilla que alterna B
+                if (grid[j, i] == 'b')
+                    Instantiate(AlternatingSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<AlternatingSquare>().Pressable = false;
             }
         }
 
