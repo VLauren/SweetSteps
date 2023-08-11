@@ -287,6 +287,10 @@ public class LevelEditor : MonoBehaviour
                     {
                         if (PlacedItems[i][j].GetComponent<MultiplePressSquare>() != null)
                             res += "2";
+                        else if (PlacedItems[i][j].GetComponent<AlternatingSquare>() != null && PlacedItems[i][j].GetComponent<AlternatingSquare>().Pressable)
+                            res += "a";
+                        else if (PlacedItems[i][j].GetComponent<AlternatingSquare>() != null && !PlacedItems[i][j].GetComponent<AlternatingSquare>().Pressable)
+                            res += "b";
                         else if (PlacedItems[i][j].GetComponent<Square>() != null)
                             res += "1";
                         else

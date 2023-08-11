@@ -301,7 +301,7 @@ public class Level : MonoBehaviour
 
     public static void OnGameAction()
     {
-        Debug.Log("Level: OnGameAction");
+        // Debug.Log("Level: OnGameAction");
         foreach (var sq in Instance.Squares)
             sq.SendMessage("OnGameAction");
     }

@@ -8,10 +8,15 @@ public class AlternatingSquare : Square
 
     public Color NonPressableColor;
 
+    Color PressableColor;
+
     void Start()
     {
+        PressableColor = GetComponent<Renderer>().material.color;
         if (!Pressable)
             GetComponent<Renderer>().material.color = NonPressableColor;
+
+        Level.AddSquare(this);
     }
 
     protected override void StopPress()
@@ -21,12 +26,15 @@ public class AlternatingSquare : Square
 
     protected override IEnumerator Press()
     {
-        yield return base.Press();
+        if (Pressable)
+            yield return base.Press();
     }
 
     protected override void OnGameAction()
     {
-        Debug.Log("Alternating square OnGameAction");
+        Pressable = !Pressable;
+        GetComponent<Renderer>().material.color = Pressable ? PressableColor : NonPressableColor;
+
         base.OnGameAction();
     }
 }

@@ -8,6 +8,11 @@ public class MultiplePressSquare : Square
 
     int pressAmount;
 
+    void Start()
+    {
+        Level.AddSquare(this);
+    }
+
     protected override void StopPress()
     {
         pressAmount++;
