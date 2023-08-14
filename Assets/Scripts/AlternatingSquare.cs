@@ -33,8 +33,25 @@ public class AlternatingSquare : Square
     protected override void OnGameAction()
     {
         Pressable = !Pressable;
-        GetComponent<Renderer>().material.color = Pressable ? PressableColor : NonPressableColor;
+        StartCoroutine(ChangeColorOverTime(Pressable ? PressableColor : NonPressableColor, 0.1f));
 
         base.OnGameAction();
+    }
+
+    IEnumerator ChangeColorOverTime(Color _color, float _time)
+    {
+        float elapsed = 0;
+        Color startColor = GetComponent<Renderer>().material.color;
+
+        while(elapsed < _time)
+        {
+            elapsed += Time.deltaTime;
+
+            GetComponent<Renderer>().material.color = Color.Lerp(startColor, _color, elapsed / _time);
+
+            yield return null;
+        }
+
+        GetComponent<Renderer>().material.color = _color;
     }
 }
