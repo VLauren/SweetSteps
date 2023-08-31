@@ -34,6 +34,8 @@ public class AlternatingSquare : Square
     {
         Pressable = !Pressable;
         StartCoroutine(ChangeColorOverTime(Pressable ? PressableColor : NonPressableColor, 0.1f));
+        foreach (var col in GetComponents<Collider>())
+            col.enabled = Pressable;
 
         base.OnGameAction();
     }
