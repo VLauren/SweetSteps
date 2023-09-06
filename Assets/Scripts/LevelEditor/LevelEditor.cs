@@ -16,6 +16,7 @@ public class LevelEditor : MonoBehaviour
     public GameObject LevelStartPrefab;
     public GameObject LevelEndPrefab;
     public GameObject WallPrefab;
+    public GameObject GhostPowerupPrefab;
 
     [Space()]
     public GameObject CursorPrefab;
@@ -57,11 +58,7 @@ public class LevelEditor : MonoBehaviour
         Debug.DrawRay(Camera.main.transform.position, ray.direction * 300, Color.green);
         Debug.DrawLine(hitPt, hitPt + Vector3.up, Color.blue);
 
-
-                        // if (PlacedItems[i][j].GetComponent<MultiplePressSquare>() != null)
-                            // res += "2";
-                        // else if (PlacedItems[i][j].GetComponent<Square>() != null)
-        if (EditorCursor.GetComponent<Square>() != null)
+        if (EditorCursor.GetComponent<Square>() != null || EditorCursor.GetComponent<GhostPowerup>() != null)
         {
             hitPt.x = 3 * Mathf.RoundToInt((hitPt.x - 1.5f) / 3) + 1.5f;
             hitPt.z = 3 * Mathf.RoundToInt((hitPt.z - 1.5f) / 3) + 1.5f;
@@ -139,6 +136,11 @@ public class LevelEditor : MonoBehaviour
             EditorCursor = Instantiate(AlternatingSquarePrefab, EditorCursor.transform.position, Quaternion.Euler(0, 90, 0)).transform;
             EditorCursor.GetComponent<AlternatingSquare>().Pressable = false;
         }
+        if(kb.gKey.wasPressedThisFrame)
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(GhostPowerupPrefab, EditorCursor.transform.position, Quaternion.Euler(0, 90, 0)).transform;
+        }
 
         // Colocar
         if (ms.leftButton.wasPressedThisFrame)
@@ -202,7 +204,6 @@ public class LevelEditor : MonoBehaviour
 
     void PlaceItem(GameObject _prefab, Vector3 _position, Quaternion _rotation, int _xIndex, int _yIndex)
     {
-
         GameObject newItem = Instantiate(_prefab, _position, _rotation);
 
         if (EditorCursor.GetComponent<Square>() != null)
@@ -224,6 +225,11 @@ public class LevelEditor : MonoBehaviour
                 highestX = _xIndex;
             if (_yIndex > highestY)
                 highestY = _yIndex;
+        }
+        else if(EditorCursor.GetComponent<GhostPowerup>())
+        {
+            // TODO
+            // añadir un placed powerup y seguir la misma logica
         }
         else if (_rotation == Quaternion.identity)
         {
@@ -341,6 +347,9 @@ public class LevelEditor : MonoBehaviour
             }
         }
 
+        // --------------------------------------------------------------
+        // TODO con placed powerups, ver qué escribo en el archivo
+        // luego generarlo con Level.cs -> SpawnLevel, añadir parte de powerups
 
         return res;
     }

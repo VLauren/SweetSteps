@@ -22,6 +22,7 @@ public class Level : MonoBehaviour
     public List<GameObject> LevelStartPrefabs;
     public List<GameObject> LevelEndPrefabs;
     public GameObject WallPrefab;
+    public GameObject GhostPowerupPrefab;
 
     [Space()]
     public string DoorOpenSound;

@@ -50,4 +50,5 @@ MonoBehaviour:
   LevelStartPrefab: {fileID: 6263576368400074612, guid: 3d0ade43ba69adf4a8e446c2d323a06c, type: 3}
   LevelEndPrefab: {fileID: 818233899790067716, guid: e061bd0cdf2dd1748b03b966f91f7f89, type: 3}
   WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
+  GhostPowerupPrefab: {fileID: 7866304594792298888, guid: 246c59fda7758dc4690425a32e18b79e, type: 3}
   CursorPrefab: {fileID: 2614279577852837439, guid: da303572ccdb8224293df2e2b45d766c, type: 3}
