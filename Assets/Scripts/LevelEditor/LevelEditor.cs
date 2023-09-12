@@ -26,6 +26,7 @@ public class LevelEditor : MonoBehaviour
     static Dictionary<int, Dictionary<int, GameObject>> PlacedItems;
     static Dictionary<int, Dictionary<int, GameObject>> PlacedHWalls;
     static Dictionary<int, Dictionary<int, GameObject>> PlacedVWalls;
+    static Dictionary<int, Dictionary<int, GameObject>> PlacedPowerups;
     static int highestX, highestY;
 
     void Start()
@@ -170,12 +171,20 @@ public class LevelEditor : MonoBehaviour
                 }
 
             }
-            else
+            else if(EditorCursor.GetComponent<Square>())
             {
                 if (PlacedItems != null && PlacedItems.ContainsKey(xPos) && PlacedItems[xPos].ContainsKey(yPos))
                 {
                     Destroy(PlacedItems[xPos][yPos]);
                     PlacedItems[xPos].Remove(yPos);
+                }
+            }
+            else
+            {
+                if (PlacedPowerups != null && PlacedPowerups.ContainsKey(xPos) && PlacedPowerups[xPos].ContainsKey(yPos))
+                {
+                    Destroy(PlacedPowerups[xPos][yPos]);
+                    PlacedPowerups[xPos].Remove(yPos);
                 }
             }
 
@@ -228,8 +237,23 @@ public class LevelEditor : MonoBehaviour
         }
         else if(EditorCursor.GetComponent<GhostPowerup>())
         {
-            // TODO
-            // añadir un placed powerup y seguir la misma logica
+            if (PlacedPowerups == null)
+                PlacedPowerups = new Dictionary<int, Dictionary<int, GameObject>>();
+
+            if (!PlacedPowerups.ContainsKey(_xIndex))
+                PlacedPowerups.Add(_xIndex, new Dictionary<int, GameObject>());
+            if (!PlacedPowerups[_xIndex].ContainsKey(_yIndex))
+                PlacedPowerups[_xIndex].Add(_yIndex, null);
+
+            if (PlacedPowerups[_xIndex][_yIndex] != null)
+                Destroy(PlacedPowerups[_xIndex][_yIndex]);
+
+            PlacedPowerups[_xIndex][_yIndex] = newItem;
+
+            if (_xIndex > highestX)
+                highestX = _xIndex;
+            if (_yIndex > highestY)
+                highestY = _yIndex;
         }
         else if (_rotation == Quaternion.identity)
         {
@@ -310,8 +334,8 @@ public class LevelEditor : MonoBehaviour
             }
         }
 
-        if (PlacedHWalls == null && PlacedVWalls == null)
-            return res;
+        // if (PlacedHWalls == null && PlacedVWalls == null)
+            // return res;
 
         // --------------------------------------------------------------
 
@@ -351,6 +375,28 @@ public class LevelEditor : MonoBehaviour
         // TODO con placed powerups, ver qué escribo en el archivo
         // luego generarlo con Level.cs -> SpawnLevel, añadir parte de powerups
 
+        // Powerups
+        for (int j = highestY; j >= 0; j--)
+        {
+            res += ":";
+            for (int i = 0; i < highestX + 1; i++)
+            {
+                if(PlacedPowerups.ContainsKey(i))
+                {
+                    if (PlacedPowerups[i].ContainsKey(j))
+                    {
+                        if (PlacedPowerups[i][j].GetComponent<GhostPowerup>() != null)
+                            res += "g";
+                        else
+                            res += "_";
+                    }
+                    else
+                        res += "_";
+                }
+                else
+                    res += "_";
+            }
+        }
         return res;
     }
 }

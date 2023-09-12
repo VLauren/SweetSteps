@@ -286,6 +286,32 @@ public class Level : MonoBehaviour
             // Debug.Log("No hay muros");
         }
 
+        // ---------------------------
+        // Powerups
+
+        char[,] powGrid = new char[xSize, ySize];
+
+        // Parsear datos y guardar en array bidimensional
+        for (int i = 3 * ySize + 2; i < 4 * ySize + 2; i++)
+        {
+            string line = lines[i];
+
+            for (int j = 0; j < xSize; j++)
+            {
+                powGrid[j, (i-(3 * ySize + 2))] = line[j];
+            }
+        }
+
+        // Instanciar powerups
+        for (int i = 0; i < ySize; i++)
+        {
+            for (int j = 0; j < xSize; j++)
+            {
+                // Si es g, powerup de ghost
+                if (powGrid[j, i] == 'g')
+                    Instantiate(GhostPowerupPrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
+            }
+        }
     }
 
     public static void OnSquarePressed(Square _square)
