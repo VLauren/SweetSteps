@@ -171,9 +171,12 @@ public class Level : MonoBehaviour
 
     public void SpawnLevel(string _levelData)
     {
-        // Debug.Log("Spawn level " + _levelData);
+        Debug.Log("Spawn level " + _levelData);
 
         string[] lines = _levelData.Split("\n"[0], ';', ':');
+
+        // for (int i = 0; i < lines.Length; i++)
+            // print("line: " + i + " " + lines[i]);
 
         // ---------------------------
         // Casillas

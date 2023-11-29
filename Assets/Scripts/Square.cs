@@ -19,7 +19,7 @@ public class Square : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<MainChar>() != null)
+        if (other.GetComponent<MainChar>() != null && !other.GetComponent<MainChar>().GhostActive)
         {
             // Pulso si no hay nada pulsado
             if (!Level.Instance.IsASquarePressed && other.GetComponent<CharacterController>().isGrounded)

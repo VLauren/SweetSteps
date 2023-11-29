@@ -381,7 +381,7 @@ public class LevelEditor : MonoBehaviour
             res += ":";
             for (int i = 0; i < highestX + 1; i++)
             {
-                if(PlacedPowerups.ContainsKey(i))
+                if(PlacedPowerups != null && PlacedPowerups.ContainsKey(i))
                 {
                     if (PlacedPowerups[i].ContainsKey(j))
                     {

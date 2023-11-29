@@ -8,6 +8,7 @@ public class GhostPowerup : MonoBehaviour
     {
         if(other.GetComponent<MainChar>() != null)
         {
+            other.GetComponent<MainChar>().Ghost(4);
             Destroy(gameObject);
         }
     }

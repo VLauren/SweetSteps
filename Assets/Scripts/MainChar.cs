@@ -22,8 +22,11 @@ public class MainChar : MonoBehaviour
 
     protected Animator Animator;
 
+    public bool GhostActive { get; private set; }
+
     public float VerticalVelocity { get; private set; }
 
+    Material[] OGMats;
     void Awake()
     {
         Instance = this;
@@ -32,6 +35,7 @@ public class MainChar : MonoBehaviour
     void Start()
     {
         Animator = transform.Find("Model").GetComponent<Animator>();
+        OGMats = transform.Find("Model/Cube").GetComponent<Renderer>().materials;
     }
 
     void Update()
@@ -60,7 +64,7 @@ public class MainChar : MonoBehaviour
         if (GetComponent<CharacterController>().isGrounded)
         {
             VerticalVelocity = -1;
-            if (JumpPressed)
+            if (JumpPressed && !GhostActive)
             {
                 Animator.SetTrigger("Jump");
                 Animator.SetBool("Grounded", false);
@@ -82,6 +86,13 @@ public class MainChar : MonoBehaviour
 
             if (VerticalVelocity < -2)
                 Animator.SetBool("Grounded", false);
+
+            if(GhostActive && transform.position.y < 0.9f)
+            {
+                Animator.SetBool("Grounded", true);
+                if (VerticalVelocity < 0)
+                    VerticalVelocity = 0;
+            }
         }
 
         GetComponent<CharacterController>().Move(ControlMovement + new Vector3(0, VerticalVelocity * Time.deltaTime, 0));
@@ -102,6 +113,10 @@ public class MainChar : MonoBehaviour
             Time.timeScale = 3;
         if (keyboard.digit1Key.wasPressedThisFrame)
             Time.timeScale = 1;
+
+        if (keyboard.gKey.wasPressedThisFrame)
+            Ghost(4);
+
     }
 
     void OnMove(InputValue _value)
@@ -122,5 +137,23 @@ public class MainChar : MonoBehaviour
     public static void EnableControl()
     {
         ControlEnabled = true;
+    }
+
+    public void Ghost(float _time)
+    {
+        GhostActive = true;
+        // TODO esperar _time y edsactivar
+        StartCoroutine(GhostRoutine(_time));
+    }
+
+    IEnumerator GhostRoutine(float _time)
+    {
+        Material[] ghostMats = { null };
+        transform.Find("Model/Cube").GetComponent<Renderer>().materials = ghostMats;
+
+        yield return new WaitForSeconds(_time);
+
+        GhostActive = false;
+        transform.Find("Model/Cube").GetComponent<Renderer>().materials = OGMats;
     }
 }
