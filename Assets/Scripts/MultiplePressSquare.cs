@@ -27,7 +27,7 @@ public class MultiplePressSquare : Square
             StartCoroutine(Unpress());
     }
 
-    protected override IEnumerator Press()
+    public override IEnumerator Press()
     {
         if (pressAmount == 0)
         {

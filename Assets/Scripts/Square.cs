@@ -10,7 +10,7 @@ public class Square : MonoBehaviour
     public string ReleaseSound;
 
     protected bool Pressed;
-    protected bool TryPress;
+    [HideInInspector] public bool TryPress;
 
     void Start()
     {
@@ -19,13 +19,21 @@ public class Square : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<MainChar>() != null && !other.GetComponent<MainChar>().GhostActive)
+        if (other.GetComponent<MainChar>() != null)
         {
-            // Pulso si no hay nada pulsado
-            if (!Level.Instance.IsASquarePressed && other.GetComponent<CharacterController>().isGrounded)
-                StartCoroutine(Press());
+            if (!other.GetComponent<MainChar>().GhostActive)
+            {
+                // Pulso si no hay nada pulsado
+                if (!Level.Instance.IsASquarePressed && other.GetComponent<CharacterController>().isGrounded)
+                    StartCoroutine(Press());
+                else
+                    TryPress = true;
+            }
             else
-                TryPress = true;
+            {
+                other.GetComponent<MainChar>().SquareToPressAfterGhost = this;
+            }
+
         }
     }
 
@@ -40,6 +48,11 @@ public class Square : MonoBehaviour
         {
             // Si no estaba pulsado, dejo de intentar pulsar
             TryPress = false;
+        }
+
+        if (other.GetComponent<MainChar>() != null && other.GetComponent<MainChar>().SquareToPressAfterGhost == this)
+        {
+            other.GetComponent<MainChar>().SquareToPressAfterGhost = null;
         }
     }
 
@@ -63,7 +76,7 @@ public class Square : MonoBehaviour
         }
     }
 
-    protected virtual IEnumerator Press()
+    public virtual IEnumerator Press()
     {
         Pressed = true;
         Level.OnSquarePressed(this);

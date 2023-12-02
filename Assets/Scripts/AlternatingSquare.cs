@@ -24,7 +24,7 @@ public class AlternatingSquare : Square
         base.StopPress();
     }
 
-    protected override IEnumerator Press()
+    public override IEnumerator Press()
     {
         if (Pressable)
             yield return base.Press();

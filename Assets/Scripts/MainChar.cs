@@ -23,8 +23,9 @@ public class MainChar : MonoBehaviour
     protected Animator Animator;
 
     public bool GhostActive { get; private set; }
-
     public float VerticalVelocity { get; private set; }
+
+    public Square SquareToPressAfterGhost;
 
     Material[] OGMats;
     void Awake()
@@ -155,5 +156,17 @@ public class MainChar : MonoBehaviour
 
         GhostActive = false;
         transform.Find("Model/Cube").GetComponent<Renderer>().materials = OGMats;
+
+        yield return null;
+
+        if(SquareToPressAfterGhost != null)
+        {
+            if (!Level.Instance.IsASquarePressed && GetComponent<CharacterController>().isGrounded)
+                StartCoroutine(SquareToPressAfterGhost.Press());
+            else
+                SquareToPressAfterGhost.TryPress = true;
+
+            SquareToPressAfterGhost = null;
+        }
     }
 }
