@@ -28,6 +28,8 @@ public class MainChar : MonoBehaviour
     public Square SquareToPressAfterGhost;
 
     Material[] OGMats;
+    Coroutine GhostRoutineRef;
+
     void Awake()
     {
         Instance = this;
@@ -143,14 +145,18 @@ public class MainChar : MonoBehaviour
     public void Ghost(float _time)
     {
         GhostActive = true;
-        // TODO esperar _time y edsactivar
-        StartCoroutine(GhostRoutine(_time));
+
+        if(GhostRoutineRef != null)
+            StopCoroutine(GhostRoutineRef);
+        GhostRoutineRef = StartCoroutine(GhostRoutine(_time));
     }
 
     IEnumerator GhostRoutine(float _time)
     {
         Material[] ghostMats = { null };
         transform.Find("Model/Cube").GetComponent<Renderer>().materials = ghostMats;
+
+        // TODO cambiar layer pa atravesar paredes
 
         yield return new WaitForSeconds(_time);
 
@@ -168,5 +174,7 @@ public class MainChar : MonoBehaviour
 
             SquareToPressAfterGhost = null;
         }
+
+        // TODO restablecer layer
     }
 }
