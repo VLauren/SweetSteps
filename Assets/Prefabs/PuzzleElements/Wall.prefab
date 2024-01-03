@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8961299165206113404}
   - component: {fileID: 1098897565492835965}
   - component: {fileID: 6956613470947321337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CloseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 7220069303047677582}
   - component: {fileID: 2668190644047508164}
   - component: {fileID: 8759107111787687851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ExtraCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 6195652764869812354}
   - component: {fileID: 1611002732944079748}
   - component: {fileID: 4277725891300615365}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

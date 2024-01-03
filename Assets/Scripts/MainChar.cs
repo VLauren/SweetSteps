@@ -156,7 +156,8 @@ public class MainChar : MonoBehaviour
         Material[] ghostMats = { null };
         transform.Find("Model/Cube").GetComponent<Renderer>().materials = ghostMats;
 
-        // TODO cambiar layer pa atravesar paredes
+        // cambiar layer pa atravesar paredes
+        gameObject.layer = LayerMask.NameToLayer("Ghost");
 
         yield return new WaitForSeconds(_time);
 
@@ -175,6 +176,7 @@ public class MainChar : MonoBehaviour
             SquareToPressAfterGhost = null;
         }
 
-        // TODO restablecer layer
+        // restablecer layer
+        gameObject.layer = LayerMask.NameToLayer("Default");
     }
 }
