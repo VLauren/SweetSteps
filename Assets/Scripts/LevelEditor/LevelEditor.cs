@@ -36,8 +36,21 @@ public class LevelEditor : MonoBehaviour
 
         EditorMode = true;
 
+        // Recupero elementos de editor si estaba editando antes
         if (PlacedItems != null)
             foreach (var column in PlacedItems)
+                foreach (var element in column.Value)
+                    element.Value.SetActive(true);
+        if (PlacedHWalls != null)
+            foreach (var column in PlacedHWalls)
+                foreach (var element in column.Value)
+                    element.Value.SetActive(true);
+        if (PlacedVWalls != null)
+            foreach (var column in PlacedVWalls)
+                foreach (var element in column.Value)
+                    element.Value.SetActive(true);
+        if (PlacedPowerups != null)
+            foreach (var column in PlacedPowerups)
                 foreach (var element in column.Value)
                     element.Value.SetActive(true);
     }
@@ -190,6 +203,7 @@ public class LevelEditor : MonoBehaviour
 
         }
 
+        // Lanzar nivel
         if (kb.pKey.wasPressedThisFrame)
         {
             Level.LevelToSpawn = GetCurrentLevelString();
@@ -197,9 +211,20 @@ public class LevelEditor : MonoBehaviour
             string path = Application.dataPath + "/Data/Resources/LastPlayedLevel.txt";
             System.IO.File.WriteAllText(path, GetCurrentLevelString());
 
+            // Oculto elementos de editor para recuperarlos luego
             foreach (var column in PlacedItems)
                 foreach (var element in column.Value)
                     element.Value.SetActive(false);
+            foreach (var column in PlacedHWalls)
+                foreach (var element in column.Value)
+                    element.Value.SetActive(false);
+            foreach (var column in PlacedVWalls)
+                foreach (var element in column.Value)
+                    element.Value.SetActive(false);
+            if (PlacedPowerups != null)
+                foreach (var column in PlacedPowerups)
+                    foreach (var element in column.Value)
+                        element.Value.SetActive(false);
 
             SceneManager.LoadScene("LevelPlayScene");
         }
@@ -357,7 +382,6 @@ public class LevelEditor : MonoBehaviour
             }
         }
 
-
         // Paredes verticales
         for (int j = highestY; j >= 0; j--)
         {
@@ -372,8 +396,6 @@ public class LevelEditor : MonoBehaviour
         }
 
         // --------------------------------------------------------------
-        // TODO con placed powerups, ver qué escribo en el archivo
-        // luego generarlo con Level.cs -> SpawnLevel, añadir parte de powerups
 
         // Powerups
         for (int j = highestY; j >= 0; j--)

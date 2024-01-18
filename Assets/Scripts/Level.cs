@@ -9,7 +9,6 @@ public class Level : MonoBehaviour
     public static Level Instance { get; private set; }
 
     static int LevelListIndex = 0;
-
     public bool IsASquarePressed { get; private set; }
     public Square LastPressedSquare { get; private set; }
 
@@ -312,7 +311,9 @@ public class Level : MonoBehaviour
             {
                 // Si es g, powerup de ghost
                 if (powGrid[j, i] == 'g')
-                    Instantiate(GhostPowerupPrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
+                {
+                    Instantiate(GhostPowerupPrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + (ySize - i - 1) * 3), Quaternion.identity);
+                }
             }
         }
     }
