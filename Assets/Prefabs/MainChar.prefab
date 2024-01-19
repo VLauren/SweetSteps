@@ -123,6 +123,8 @@ MonoBehaviour:
   RotationSpeed: 720
   Gravity: 15
   JumpStrength: 5
+  GhostMaterial: {fileID: 2100000, guid: 8c31619a6db561a488020e2fcc8566e6, type: 2}
+  SquareToPressAfterGhost: {fileID: 0}
 --- !u!114 &1685588744006292419
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class MainChar : MonoBehaviour
     [SerializeField] float RotationSpeed = 360;
     [SerializeField] float Gravity = 20;
     [SerializeField] float JumpStrength = 1;
+    [Space()]
+    [SerializeField] Material GhostMaterial;
 
     protected Vector3 InputDirection;
     protected Vector3 ControlMovement;
@@ -153,11 +155,14 @@ public class MainChar : MonoBehaviour
 
     IEnumerator GhostRoutine(float _time)
     {
-        Material[] ghostMats = { null };
+        // Material[] ghostMats = { null };
+        Material[] ghostMats = { GhostMaterial, GhostMaterial, GhostMaterial };
         transform.Find("Model/Cube").GetComponent<Renderer>().materials = ghostMats;
 
         // cambiar layer pa atravesar paredes
         gameObject.layer = LayerMask.NameToLayer("Ghost");
+
+        Effects.SpawnEffect(3, transform.position);
 
         yield return new WaitForSeconds(_time);
 
@@ -175,6 +180,8 @@ public class MainChar : MonoBehaviour
 
             SquareToPressAfterGhost = null;
         }
+
+        Effects.SpawnEffect(3, transform.position);
 
         // restablecer layer
         gameObject.layer = LayerMask.NameToLayer("Default");
