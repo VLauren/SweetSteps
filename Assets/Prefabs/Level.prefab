@@ -65,6 +65,7 @@ MonoBehaviour:
   - {fileID: 818233899790067716, guid: 6b5ff76cbbddcf84fad8811a1ac4eeda, type: 3}
   WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
   GhostPowerupPrefab: {fileID: 7866304594792298888, guid: 246c59fda7758dc4690425a32e18b79e, type: 3}
+  AreaSquarePrefab: {fileID: 5838553799927681451, guid: 28fc16ab025b9224fb68d2f22652f328, type: 3}
   DoorOpenSound: open_jingles_PIZZI10
   GenerateRandomLevel: 0
   UseLevelList: 0

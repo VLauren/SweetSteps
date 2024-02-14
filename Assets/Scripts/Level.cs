@@ -22,6 +22,7 @@ public class Level : MonoBehaviour
     public List<GameObject> LevelEndPrefabs;
     public GameObject WallPrefab;
     public GameObject GhostPowerupPrefab;
+    public GameObject AreaSquarePrefab;
 
     [Space()]
     public string DoorOpenSound;
@@ -211,6 +212,8 @@ public class Level : MonoBehaviour
                 // Si es b, casilla que alterna B
                 if (grid[j, i] == 'b')
                     Instantiate(AlternatingSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<AlternatingSquare>().Pressable = false;
+                if (grid[j, i] == 'x')
+                    Instantiate(AreaSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
             }
         }
 
