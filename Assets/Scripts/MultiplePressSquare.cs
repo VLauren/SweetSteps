@@ -13,7 +13,7 @@ public class MultiplePressSquare : Square
         Level.AddSquare(this);
     }
 
-    protected override void StopPress()
+    public override void StopPress()
     {
         pressAmount++;
         Pressed = false;

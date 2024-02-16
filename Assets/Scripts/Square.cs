@@ -56,7 +56,7 @@ public class Square : MonoBehaviour
         }
     }
 
-    protected virtual void StopPress()
+    public virtual void StopPress()
     {
         Level.OnSquareUnpressed(this);
         Level.RemoveSquare(this);
