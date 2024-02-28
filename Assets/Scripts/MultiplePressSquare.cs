@@ -13,11 +13,12 @@ public class MultiplePressSquare : Square
         Level.AddSquare(this);
     }
 
-    public override void StopPress()
+    public override void StopPress(bool _special)
     {
         pressAmount++;
         Pressed = false;
-        TryPress = false;
+        if(!_special)
+            TryPress = false;
 
         Level.OnSquareUnpressed(this);
 

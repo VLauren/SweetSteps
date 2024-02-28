@@ -29,10 +29,11 @@ public class AreaSquare : Square
         return base.Press();
     }
 
-    public override void StopPress()
+    public override void StopPress(bool _special)
     {
         foreach (Square sq in PressedSquares)
-            sq.StopPress();
+            if (sq != null)
+                sq.StopPress(true);
 
         base.StopPress();
     }

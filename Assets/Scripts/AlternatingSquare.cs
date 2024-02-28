@@ -19,7 +19,7 @@ public class AlternatingSquare : Square
         Level.AddSquare(this);
     }
 
-    public override void StopPress()
+    public override void StopPress(bool _special)
     {
         base.StopPress();
     }
