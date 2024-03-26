@@ -20,9 +20,12 @@ public class Level : MonoBehaviour
     public GameObject LevelEndPrefab;
     public List<GameObject> LevelStartPrefabs;
     public List<GameObject> LevelEndPrefabs;
+    public List<GameObject> LevelStartPrefabs2;
+    public List<GameObject> LevelEndPrefabs2;
     public GameObject WallPrefab;
     public GameObject GhostPowerupPrefab;
     public GameObject AreaSquarePrefab;
+    public List<Color> BGColors;
 
     [Space()]
     public string DoorOpenSound;
@@ -142,6 +145,9 @@ public class Level : MonoBehaviour
         if (!DontSpawn)
             SpawnLevel(LevelToSpawn);
 
+        // Background color
+        Camera.main.transform.GetChild(0).GetComponent<Camera>().backgroundColor = BGColors[GameData.CurrentWorld - 1];
+
         FadeUI.FadeIn(0.5f);
     }
 
@@ -221,8 +227,23 @@ public class Level : MonoBehaviour
         // GameObject levelStart = Instantiate(LevelStartPrefab, new Vector3(-3f + xSize * 1.5f, 0, -4.5f), Quaternion.identity);
         // GameObject levelEnd = Instantiate(LevelEndPrefab, new Vector3(-3f + xSize * 1.5f, 0, -4.5f + 3f * (ySize + 1)), Quaternion.identity);
 
-        GameObject levelStart = Instantiate(LevelStartPrefabs[xSize-1], new Vector3(-3f + xSize * 1.5f, 0, -4.5f), Quaternion.identity);
-        GameObject levelEnd = Instantiate(LevelEndPrefabs[xSize-1], new Vector3(-3f + xSize * 1.5f, 0, -4.5f + 3f * (ySize + 1)), Quaternion.identity);
+
+        List<GameObject> levelStartPrefabsToUse;
+        List<GameObject> levelEndPrefabsToUse;
+        switch(GameData.CurrentWorld)
+        {
+            case 2:
+                levelStartPrefabsToUse = LevelStartPrefabs2;
+                levelEndPrefabsToUse = LevelEndPrefabs2;
+                break;
+            default:
+                levelStartPrefabsToUse = LevelStartPrefabs;
+                levelEndPrefabsToUse = LevelEndPrefabs;
+                break;
+        }
+
+        GameObject levelStart = Instantiate(levelStartPrefabsToUse[xSize-1], new Vector3(-3f + xSize * 1.5f, 0, -4.5f), Quaternion.identity);
+        GameObject levelEnd = Instantiate(levelEndPrefabsToUse[xSize-1], new Vector3(-3f + xSize * 1.5f, 0, -4.5f + 3f * (ySize + 1)), Quaternion.identity);
 
         // levelStart.transform.localScale = new Vector3(3 * xSize - 0.2f, levelStart.transform.localScale.y, levelStart.transform.localScale.z);
         // levelEnd.transform.Find("Floor").localScale = new Vector3(3 * xSize - 0.2f, levelEnd.transform.Find("Floor").localScale.y, levelEnd.transform.Find("Floor").localScale.z);
