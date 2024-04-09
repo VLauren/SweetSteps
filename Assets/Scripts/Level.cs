@@ -22,6 +22,10 @@ public class Level : MonoBehaviour
     public List<GameObject> LevelEndPrefabs;
     public List<GameObject> LevelStartPrefabs2;
     public List<GameObject> LevelEndPrefabs2;
+    public List<GameObject> LevelStartPrefabs3;
+    public List<GameObject> LevelEndPrefabs3;
+    public List<GameObject> LevelStartPrefabs4;
+    public List<GameObject> LevelEndPrefabs4;
     public GameObject WallPrefab;
     public GameObject GhostPowerupPrefab;
     public GameObject AreaSquarePrefab;
@@ -235,6 +239,14 @@ public class Level : MonoBehaviour
             case 2:
                 levelStartPrefabsToUse = LevelStartPrefabs2;
                 levelEndPrefabsToUse = LevelEndPrefabs2;
+                break;
+            case 3:
+                levelStartPrefabsToUse = LevelStartPrefabs3;
+                levelEndPrefabsToUse = LevelEndPrefabs3;
+                break;
+            case 4:
+                levelStartPrefabsToUse = LevelStartPrefabs4;
+                levelEndPrefabsToUse = LevelEndPrefabs4;
                 break;
             default:
                 levelStartPrefabsToUse = LevelStartPrefabs;
