@@ -77,12 +77,29 @@ MonoBehaviour:
   - {fileID: 818233899790067716, guid: 09c86cdad2d198b4a939fa6e74ad66b1, type: 3}
   - {fileID: 818233899790067716, guid: 09c86cdad2d198b4a939fa6e74ad66b1, type: 3}
   - {fileID: 0}
+  LevelStartPrefabs3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 6263576368400074612, guid: 371bb6ef0f3a9f54e86cef84c312fa66, type: 3}
+  - {fileID: 6263576368400074612, guid: b210b00764b5a324ab144a3e15389bab, type: 3}
+  - {fileID: 6263576368400074612, guid: b210b00764b5a324ab144a3e15389bab, type: 3}
+  - {fileID: 0}
+  LevelEndPrefabs3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 818233899790067716, guid: daea75a761e32ed4cb42cf97ac7c3c84, type: 3}
+  - {fileID: 818233899790067716, guid: 132a1743486bd604a98193f3525ecb39, type: 3}
+  - {fileID: 818233899790067716, guid: 132a1743486bd604a98193f3525ecb39, type: 3}
+  - {fileID: 0}
+  LevelStartPrefabs4: []
+  LevelEndPrefabs4: []
   WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}
   GhostPowerupPrefab: {fileID: 7866304594792298888, guid: 246c59fda7758dc4690425a32e18b79e, type: 3}
   AreaSquarePrefab: {fileID: 5838553799927681451, guid: 28fc16ab025b9224fb68d2f22652f328, type: 3}
   BGColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.9960785, g: 0.9490197, b: 0.86274517, a: 1}
+  - {r: 0.86274517, g: 0.9686275, b: 0.9960785, a: 1}
   DoorOpenSound: open_jingles_PIZZI10
   GenerateRandomLevel: 0
   UseLevelList: 0

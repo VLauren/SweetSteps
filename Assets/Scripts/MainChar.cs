@@ -112,6 +112,7 @@ public class MainChar : MonoBehaviour
         }
 
         // ----------------------------------
+        // Teclas de debug
 
         var keyboard = Keyboard.current;
         if (keyboard.digit3Key.wasPressedThisFrame)
@@ -122,6 +123,27 @@ public class MainChar : MonoBehaviour
         if (keyboard.gKey.wasPressedThisFrame)
             Ghost(4);
 
+        if(keyboard.digit7Key.wasPressedThisFrame)
+        {
+            GameData.CurrentWorld = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            AudioManager.Play("fall_lowRandom", false);
+            AudioManager.Play("fall_question_001", false);
+        }
+        if(keyboard.digit8Key.wasPressedThisFrame)
+        {
+            GameData.CurrentWorld = 2;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            AudioManager.Play("fall_lowRandom", false);
+            AudioManager.Play("fall_question_001", false);
+        }
+        if(keyboard.digit9Key.wasPressedThisFrame)
+        {
+            GameData.CurrentWorld = 3;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            AudioManager.Play("fall_lowRandom", false);
+            AudioManager.Play("fall_question_001", false);
+        }
     }
 
     void OnMove(InputValue _value)
