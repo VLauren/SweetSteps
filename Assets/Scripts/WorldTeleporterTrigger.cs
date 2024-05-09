@@ -12,6 +12,7 @@ public class WorldTeleporterTrigger : MonoBehaviour
         if(other.GetComponent<MainChar>() != null )
         {
             if(GameData.IsWorldUnlocked(World) && World != GameData.CurrentWorld)
+            // if(World != GameData.CurrentWorld)
             {
                 // GameData.CurrentDoor = 0;
                 // GameData.SetWorld(World);
@@ -36,7 +37,8 @@ public class WorldTeleporterTrigger : MonoBehaviour
 
         GameData.CurrentDoor = 0;
         GameData.SetWorld(World);
-        SceneManager.LoadScene("HubScene" + (World == 1 ? 1 : 2));
+        // SceneManager.LoadScene("HubScene" + (World == 1 ? 1 : 2));
+        SceneManager.LoadScene("HubScene" + World);
     }
 
     void OnDrawGizmos()

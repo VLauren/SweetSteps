@@ -102,6 +102,11 @@ public class Level : MonoBehaviour
         // DEBUG
         if (keyboard.nKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
             NextLevel(0.1f);
+        if (keyboard.mKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
+        {
+            GameData.CurrentLevel = LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor);
+            NextLevel(0.1f);
+        }
     }
 
     void Start()
