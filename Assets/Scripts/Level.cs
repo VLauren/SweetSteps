@@ -104,8 +104,8 @@ public class Level : MonoBehaviour
             NextLevel(0.1f);
         if (keyboard.mKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
         {
-            GameData.CurrentLevel = LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor);
-            NextLevel(0.1f);
+            // GameData.CurrentLevel = LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor);
+            // NextLevel(0.1f);
         }
     }
 
@@ -335,7 +335,7 @@ public class Level : MonoBehaviour
         char[,] powGrid = new char[xSize, ySize];
 
 
-        if (lines.Length > 3 * ySize + 1)
+        if (lines.Length > 3 * ySize + 2)
         {
             // Parsear datos y guardar en array bidimensional
             for (int i = 3 * ySize + 2; i < 4 * ySize + 2; i++)
