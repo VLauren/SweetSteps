@@ -18,6 +18,8 @@ public class LevelEditor : MonoBehaviour
     public GameObject WallPrefab;
     public GameObject GhostPowerupPrefab;
     public GameObject AreaSquarePrefab;
+    public GameObject HClearSquarePrefab;
+    public GameObject VClearSquarePrefab;
 
     [Space()]
     public GameObject CursorPrefab;
@@ -160,6 +162,16 @@ public class LevelEditor : MonoBehaviour
         {
             Destroy(EditorCursor.gameObject);
             EditorCursor = Instantiate(AreaSquarePrefab, EditorCursor.transform.position, Quaternion.identity).transform;
+        }
+        if(kb.hKey.wasPressedThisFrame)
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(HClearSquarePrefab, EditorCursor.transform.position, Quaternion.identity).transform;
+        }
+        if(kb.vKey.wasPressedThisFrame)
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(VClearSquarePrefab, EditorCursor.transform.position, Quaternion.identity).transform;
         }
 
         // Colocar
@@ -354,6 +366,10 @@ public class LevelEditor : MonoBehaviour
                             res += "b";
                         else if (PlacedItems[i][j].GetComponent<AreaSquare>() != null)
                             res += "x";
+                        else if (PlacedItems[i][j].GetComponent<HClearSquare>() != null)
+                            res += "h";
+                        else if (PlacedItems[i][j].GetComponent<VClearSquare>() != null)
+                            res += "v";
                         else if (PlacedItems[i][j].GetComponent<Square>() != null)
                             res += "1";
                         else

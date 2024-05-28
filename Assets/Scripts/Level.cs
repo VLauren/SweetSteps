@@ -29,6 +29,8 @@ public class Level : MonoBehaviour
     public GameObject WallPrefab;
     public GameObject GhostPowerupPrefab;
     public GameObject AreaSquarePrefab;
+    public GameObject HClearSquarePrefab;
+    public GameObject VClearSquarePrefab;
     public List<Color> BGColors;
 
     [Space()]
@@ -229,6 +231,10 @@ public class Level : MonoBehaviour
                     Instantiate(AlternatingSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<AlternatingSquare>().Pressable = false;
                 if (grid[j, i] == 'x')
                     Instantiate(AreaSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
+                if (grid[j, i] == 'h')
+                    Instantiate(HClearSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
+                if (grid[j, i] == 'v')
+                    Instantiate(VClearSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
             }
         }
 
