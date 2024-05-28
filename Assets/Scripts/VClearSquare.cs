@@ -18,7 +18,7 @@ public class VClearSquare : Square
         foreach (var sq in squares)
         {
             // Si no es un area square y es adyacente
-            if (Vector3.Distance(sq.transform.position, transform.position) <= 3.1f && sq.GetType() != typeof(AreaSquare))
+            if (Mathf.Abs(sq.transform.position.x - transform.position.x) <= 0.1f && sq.GetType() != typeof(AreaSquare) && sq.GetType() != typeof(HClearSquare) && sq.GetType() != typeof(VClearSquare))
             {
                 // Guardo la referencia y lo pulso
                 PressedSquares.Add(sq);
