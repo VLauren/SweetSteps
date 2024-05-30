@@ -54,4 +54,5 @@ MonoBehaviour:
   AreaSquarePrefab: {fileID: 5838553799927681451, guid: 28fc16ab025b9224fb68d2f22652f328, type: 3}
   HClearSquarePrefab: {fileID: 7521123272857963088, guid: a10919394096d1c468fa0c6e331908ea, type: 3}
   VClearSquarePrefab: {fileID: 7521123272857963088, guid: 70a37babdd7417749a55abcfb5b282f9, type: 3}
+  SquareSequencePrefab: {fileID: 1447607313312359435, guid: 588fcb39d55dee64fb1ce958a66c06e1, type: 3}
   CursorPrefab: {fileID: 2614279577852837439, guid: da303572ccdb8224293df2e2b45d766c, type: 3}

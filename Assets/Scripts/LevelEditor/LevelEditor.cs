@@ -20,6 +20,7 @@ public class LevelEditor : MonoBehaviour
     public GameObject AreaSquarePrefab;
     public GameObject HClearSquarePrefab;
     public GameObject VClearSquarePrefab;
+    public GameObject SquareSequencePrefab;
 
     [Space()]
     public GameObject CursorPrefab;
@@ -173,6 +174,17 @@ public class LevelEditor : MonoBehaviour
             Destroy(EditorCursor.gameObject);
             EditorCursor = Instantiate(VClearSquarePrefab, EditorCursor.transform.position, Quaternion.identity).transform;
         }
+        if(kb.qKey.wasPressedThisFrame || kb.wKey.wasPressedThisFrame || kb.eKey.wasPressedThisFrame || kb.rKey.wasPressedThisFrame || kb.tKey.wasPressedThisFrame)
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(SquareSequencePrefab, EditorCursor.transform.position, Quaternion.identity).transform;
+            int index = 0;
+            if (kb.wKey.wasPressedThisFrame) index = 1;
+            if (kb.eKey.wasPressedThisFrame) index = 2;
+            if (kb.rKey.wasPressedThisFrame) index = 3;
+            if (kb.tKey.wasPressedThisFrame) index = 4;
+            EditorCursor.GetComponent<SquareSequence>().Index = index;
+        }
 
         // Colocar
         if (ms.leftButton.wasPressedThisFrame)
@@ -277,6 +289,9 @@ public class LevelEditor : MonoBehaviour
                 highestX = _xIndex;
             if (_yIndex > highestY)
                 highestY = _yIndex;
+
+            if (EditorCursor.GetComponent<SquareSequence>() != null)
+                EditorCursor.GetComponent<SquareSequence>().Index = _prefab.GetComponent<SquareSequence>().Index;
         }
         else if(EditorCursor.GetComponent<GhostPowerup>())
         {
@@ -370,6 +385,8 @@ public class LevelEditor : MonoBehaviour
                             res += "h";
                         else if (PlacedItems[i][j].GetComponent<VClearSquare>() != null)
                             res += "v";
+                        else if (PlacedItems[i][j].GetComponent<SquareSequence>() != null)
+                            res += PlacedItems[i][j].GetComponent<SquareSequence>().GetKey();
                         else if (PlacedItems[i][j].GetComponent<Square>() != null)
                             res += "1";
                         else

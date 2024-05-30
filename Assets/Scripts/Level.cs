@@ -31,6 +31,7 @@ public class Level : MonoBehaviour
     public GameObject AreaSquarePrefab;
     public GameObject HClearSquarePrefab;
     public GameObject VClearSquarePrefab;
+    public GameObject SquareSequencePrefab;
     public List<Color> BGColors;
 
     [Space()]
@@ -235,6 +236,17 @@ public class Level : MonoBehaviour
                     Instantiate(HClearSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
                 if (grid[j, i] == 'v')
                     Instantiate(VClearSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
+
+                if (grid[j, i] == 'q')
+                    Instantiate(SquareSequencePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<SquareSequence>().Index = 0;
+                if (grid[j, i] == 'w')
+                    Instantiate(SquareSequencePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<SquareSequence>().Index = 1;
+                if (grid[j, i] == 'e')
+                    Instantiate(SquareSequencePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<SquareSequence>().Index = 2;
+                if (grid[j, i] == 'r')
+                    Instantiate(SquareSequencePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<SquareSequence>().Index = 3;
+                if (grid[j, i] == 't')
+                    Instantiate(SquareSequencePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<SquareSequence>().Index = 4;
             }
         }
 
