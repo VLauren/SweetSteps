@@ -43,7 +43,6 @@ public class SquareSequence : Square
 
     protected override void OnGameAction()
     {
-        print("game action " + Index + " " + NextPressable);
         if (!Pressed && NextPressable == Index)
         {
             StartCoroutine(ChangeColorOverTime(PressableColor, 0.1f));

@@ -21,6 +21,7 @@ public class LevelEditor : MonoBehaviour
     public GameObject HClearSquarePrefab;
     public GameObject VClearSquarePrefab;
     public GameObject SquareSequencePrefab;
+    public GameObject SquareSpawnPrefab;
 
     [Space()]
     public GameObject CursorPrefab;
@@ -184,6 +185,11 @@ public class LevelEditor : MonoBehaviour
             if (kb.rKey.wasPressedThisFrame) index = 3;
             if (kb.tKey.wasPressedThisFrame) index = 4;
             EditorCursor.GetComponent<SquareSequence>().Index = index;
+        }
+        if(kb.sKey.wasPressedThisFrame)
+        {
+            Destroy(EditorCursor.gameObject);
+            EditorCursor = Instantiate(SquareSpawnPrefab, EditorCursor.transform.position, Quaternion.identity).transform;
         }
 
         // Colocar
@@ -387,6 +393,8 @@ public class LevelEditor : MonoBehaviour
                             res += "v";
                         else if (PlacedItems[i][j].GetComponent<SquareSequence>() != null)
                             res += PlacedItems[i][j].GetComponent<SquareSequence>().GetKey();
+                        else if (PlacedItems[i][j].GetComponent<SquareSpawn>() != null)
+                            res += "s";
                         else if (PlacedItems[i][j].GetComponent<Square>() != null)
                             res += "1";
                         else

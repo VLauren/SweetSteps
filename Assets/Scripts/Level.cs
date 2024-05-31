@@ -32,6 +32,7 @@ public class Level : MonoBehaviour
     public GameObject HClearSquarePrefab;
     public GameObject VClearSquarePrefab;
     public GameObject SquareSequencePrefab;
+    public GameObject SquareSpawnPrefab;
     public List<Color> BGColors;
 
     [Space()]
@@ -237,6 +238,7 @@ public class Level : MonoBehaviour
                 if (grid[j, i] == 'v')
                     Instantiate(VClearSquarePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
 
+                // Secuencia de casillas
                 if (grid[j, i] == 'q')
                     Instantiate(SquareSequencePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<SquareSequence>().Index = 0;
                 if (grid[j, i] == 'w')
@@ -247,6 +249,9 @@ public class Level : MonoBehaviour
                     Instantiate(SquareSequencePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<SquareSequence>().Index = 3;
                 if (grid[j, i] == 't')
                     Instantiate(SquareSequencePrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity).GetComponent<SquareSequence>().Index = 4;
+
+                if (grid[j, i] == 's')
+                    Instantiate(SquareSpawnPrefab, new Vector3(-1.5f + j * 3, 0, -1.5f + i * 3), Quaternion.identity);
             }
         }
 
