@@ -8,6 +8,9 @@ public class Level : MonoBehaviour
 {
     public static Level Instance { get; private set; }
 
+    public static int LevelSizeX { get; private set; }
+    public static int LevelSizeY { get; private set; }
+
     static int LevelListIndex = 0;
     public bool IsASquarePressed { get; private set; }
     public Square LastPressedSquare { get; private set; }
@@ -202,6 +205,8 @@ public class Level : MonoBehaviour
 
         int xSize = int.Parse(lines[0].Split('x')[0]);
         int ySize = int.Parse(lines[0].Split('x')[1]);
+        LevelSizeX = xSize;
+        LevelSizeY = ySize;
 
         char[,] grid = new char[xSize, ySize];
 
