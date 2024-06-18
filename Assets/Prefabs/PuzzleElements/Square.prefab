@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 19e81005f1669564a98ff3bcc9b9226d, type: 2}
+  - {fileID: 2100000, guid: 50e9ecc4b9d18f74993f0173b9d7dbb8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,4 +127,4 @@ MonoBehaviour:
   PressedColor: {r: 0.8235295, g: 1, b: 0.63529414, a: 1}
   PressSound: release_switch_007
   ReleaseSound: press_glass_004
-  PressSoundDelay: 0
+  TryPress: 0

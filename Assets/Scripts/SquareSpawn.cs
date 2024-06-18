@@ -40,16 +40,41 @@ public class SquareSpawn : Square
             }
         }
 
-        if (spawnNorth && transform.position.z < -1.4f + (Level.LevelSizeY-2) * 3)
-            Instantiate(SquarePrefab, transform.position + new Vector3(0, 0, 3), Quaternion.identity);
-        if (spawnSouth && transform.position.z > 1.4f)
-            Instantiate(SquarePrefab, transform.position + new Vector3(0, 0, -3), Quaternion.identity);
-        if(spawnEast)
-            Instantiate(SquarePrefab, transform.position + new Vector3(3, 0, 0), Quaternion.identity);
-        if (spawnWest)
-            Instantiate(SquarePrefab, transform.position + new Vector3(-3, 0, 0), Quaternion.identity);
+        List<GameObject> spawnedSquares = new List<GameObject>();
 
+        if (spawnNorth && transform.position.z < -1.4f + (Level.LevelSizeY - 2) * 3)
+            spawnedSquares.Add(Instantiate(SquarePrefab, transform.position + new Vector3(0, 0, 3), Quaternion.identity));
+        if (spawnSouth && transform.position.z > 1.4f)
+            spawnedSquares.Add(Instantiate(SquarePrefab, transform.position + new Vector3(0, 0, -3), Quaternion.identity));
+        if(spawnEast)
+            spawnedSquares.Add(Instantiate(SquarePrefab, transform.position + new Vector3(3, 0, 0), Quaternion.identity));
+        if (spawnWest)
+            spawnedSquares.Add(Instantiate(SquarePrefab, transform.position + new Vector3(-3, 0, 0), Quaternion.identity));
+
+        foreach (var sq in spawnedSquares)
+        {
+            Color ogColor = sq.GetComponent<Renderer>().material.color;
+            sq.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
+            StartCoroutine(ChangeColorOverTime(sq.GetComponent<Renderer>(), ogColor, 0.1f));
+        }
 
         yield return base.Press();
+    }
+
+    IEnumerator ChangeColorOverTime(Renderer _renderer, Color _color, float _time)
+    {
+        float elapsed = 0;
+        Color startColor = _renderer.material.color;
+
+        while(elapsed < _time)
+        {
+            elapsed += Time.deltaTime;
+
+            _renderer.material.color = Color.Lerp(startColor, _color, elapsed / _time);
+
+            yield return null;
+        }
+
+        _renderer.material.color = _color;
     }
 }
