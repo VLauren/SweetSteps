@@ -64,33 +64,33 @@ MonoBehaviour:
   - {fileID: 818233899790067716, guid: 0a5738116d25f304394c0eb8611afea0, type: 3}
   - {fileID: 818233899790067716, guid: 6b5ff76cbbddcf84fad8811a1ac4eeda, type: 3}
   LevelStartPrefabs2:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6263576368400074612, guid: 73d5dc1baab84914cb78c88dd64fd8e6, type: 3}
+  - {fileID: 6263576368400074612, guid: a8a42a6f59d76b1489ceee5f5f7fdd4d, type: 3}
   - {fileID: 6263576368400074612, guid: 0decef1f1be640444b937761ae36aea4, type: 3}
   - {fileID: 6263576368400074612, guid: 2b9caa033be855144a5fcff2426c5cb4, type: 3}
-  - {fileID: 6263576368400074612, guid: 2b9caa033be855144a5fcff2426c5cb4, type: 3}
-  - {fileID: 0}
+  - {fileID: 6263576368400074612, guid: 56eed313beb9cdd4899551d5767d5c1b, type: 3}
+  - {fileID: 6263576368400074612, guid: f1a1b3b9e0cf6224d9312fe3e4d5ed83, type: 3}
   LevelEndPrefabs2:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 818233899790067716, guid: 6e64ff1dbf844e241a20838d21935eb3, type: 3}
+  - {fileID: 818233899790067716, guid: 2d6d51383ecfe1d41b4515b06011e715, type: 3}
   - {fileID: 818233899790067716, guid: d9ed866fe701cce45b33d261c32ba038, type: 3}
   - {fileID: 818233899790067716, guid: 09c86cdad2d198b4a939fa6e74ad66b1, type: 3}
-  - {fileID: 818233899790067716, guid: 09c86cdad2d198b4a939fa6e74ad66b1, type: 3}
-  - {fileID: 0}
+  - {fileID: 818233899790067716, guid: 7d32a4de163f186408a2546c3e493802, type: 3}
+  - {fileID: 818233899790067716, guid: 96c5572d62f8e8945acfce7cf4630ece, type: 3}
   LevelStartPrefabs3:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6263576368400074612, guid: 70c45cc30f16f2044aecb6bbd1ca5f6e, type: 3}
+  - {fileID: 6263576368400074612, guid: 7b38851ece84d8744adef84e4bcf6b34, type: 3}
   - {fileID: 6263576368400074612, guid: 371bb6ef0f3a9f54e86cef84c312fa66, type: 3}
   - {fileID: 6263576368400074612, guid: b210b00764b5a324ab144a3e15389bab, type: 3}
-  - {fileID: 6263576368400074612, guid: b210b00764b5a324ab144a3e15389bab, type: 3}
-  - {fileID: 0}
+  - {fileID: 6263576368400074612, guid: da882a5a69980bc43bd7197063adef02, type: 3}
+  - {fileID: 6263576368400074612, guid: 4cc5a6431c0a58b409b93f77114f4728, type: 3}
   LevelEndPrefabs3:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 818233899790067716, guid: df3853dc9fd4d654fb238d3012d9e21d, type: 3}
+  - {fileID: 818233899790067716, guid: bea9bb417c29581419a6e59299000b76, type: 3}
   - {fileID: 818233899790067716, guid: daea75a761e32ed4cb42cf97ac7c3c84, type: 3}
   - {fileID: 818233899790067716, guid: 132a1743486bd604a98193f3525ecb39, type: 3}
-  - {fileID: 818233899790067716, guid: 132a1743486bd604a98193f3525ecb39, type: 3}
-  - {fileID: 0}
+  - {fileID: 818233899790067716, guid: f4c129d745eb03b4a8033e9745c51c77, type: 3}
+  - {fileID: 818233899790067716, guid: f55d211ae499094448038cfbb3780cc5, type: 3}
   LevelStartPrefabs4: []
   LevelEndPrefabs4: []
   WallPrefab: {fileID: 8740698222801650913, guid: 7b172822d64aa9a4c92e67013d73ad03, type: 3}

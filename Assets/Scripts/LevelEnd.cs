@@ -8,6 +8,7 @@ public class LevelEnd : MonoBehaviour
 
     public Renderer Door;
     public Material MatToSet;
+    public int MatIndex = 2;
 
     void Awake()
     {
@@ -21,7 +22,8 @@ public class LevelEnd : MonoBehaviour
         if (Door != null)
         {
             var mats = Door.materials;
-            mats[2] = MatToSet;
+            mats[MatIndex] = MatToSet;
+            // mats[2] = MatToSet;
             Door.materials = mats;
         }
     }
