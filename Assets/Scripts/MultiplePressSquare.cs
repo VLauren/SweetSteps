@@ -20,12 +20,15 @@ public class MultiplePressSquare : Square
         if(!_special)
             TryPress = false;
 
-        Level.OnSquareUnpressed(this);
-
         if(pressAmount > 1)
+        {
             base.StopPress();
+        }
         else
+        {
+            Level.OnSquareUnpressed(this);
             StartCoroutine(Unpress());
+        }
     }
 
     public override IEnumerator Press()
