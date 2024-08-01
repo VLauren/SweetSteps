@@ -16,6 +16,9 @@ public class AlternatingSquare : Square
         if (!Pressable)
             GetComponent<Renderer>().material.color = NonPressableColor;
 
+        foreach (var col in GetComponents<Collider>())
+            col.enabled = Pressable;
+
         Level.AddSquare(this);
     }
 
