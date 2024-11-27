@@ -59,7 +59,12 @@ public class MainChar : MonoBehaviour
         float rCam = Camera.main.transform.eulerAngles.y;
 
         // Direccion relativa a camara
-        ControlMovement = Quaternion.Euler(0, rCam, 0) * ControlMovement;
+        // ControlMovement = Quaternion.Euler(0, rCam, 0) * ControlMovement;
+
+        // Direccion absoluta
+        ControlMovement = Quaternion.Euler(0, -45, 0) * ControlMovement;
+
+
         if (ControlMovement != Vector3.zero)
         {
             TargetRotation = Quaternion.LookRotation(ControlMovement, Vector3.up);
@@ -185,6 +190,8 @@ public class MainChar : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Ghost");
 
         Effects.SpawnEffect(3, transform.position);
+
+        GetComponent<CharacterController>().Move(new Vector3(0,0.91f - transform.position.y,0));
 
         yield return new WaitForSeconds(_time);
 
