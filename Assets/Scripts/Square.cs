@@ -56,9 +56,9 @@ public class Square : MonoBehaviour
         }
     }
 
-    public virtual void StopPress(bool _special = false)
+    public virtual void StopPress(bool _skipGameAction = false)
     {
-        Level.OnSquareUnpressed(this);
+        Level.OnSquareUnpressed(this, _skipGameAction);
         Level.RemoveSquare(this);
 
         AudioManager.Play(ReleaseSound, false);

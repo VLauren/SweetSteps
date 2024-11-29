@@ -397,15 +397,18 @@ public class Level : MonoBehaviour
         Instance.LastPressedSquare = _square;
     }
 
-    public static void OnSquareUnpressed(Square _square)
+    public static void OnSquareUnpressed(Square _square, bool _skipGameAction = false)
     {
         Instance.IsASquarePressed = false;
-        OnGameAction();
+        OnGameAction(_skipGameAction);
     }
 
-    public static void OnGameAction()
+    public static void OnGameAction(bool _skipGameAction = false)
     {
         // Debug.Log("Level: OnGameAction");
+
+        if (_skipGameAction)
+            return;
 
         foreach (var sq in Instance.Squares)
             sq.SendMessage("OnGameAction");

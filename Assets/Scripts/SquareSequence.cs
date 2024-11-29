@@ -5,7 +5,7 @@ using UnityEngine;
 public class SquareSequence : Square
 {
     static SquareSequence[] OtherSquareOfSequence;
-    static int NextPressable;
+    public static int NextPressable;
 
     public int Index;
     public Color NonPressableColor;
@@ -27,9 +27,9 @@ public class SquareSequence : Square
         Level.AddSquare(this);
     }
 
-    public override void StopPress(bool _special)
+    public override void StopPress(bool _skipGameAction)
     {
-        base.StopPress();
+        base.StopPress(_skipGameAction);
     }
 
     public override IEnumerator Press()
