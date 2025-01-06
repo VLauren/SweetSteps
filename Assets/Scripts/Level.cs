@@ -126,12 +126,56 @@ public class Level : MonoBehaviour
             LevelToSpawn = xSize + "x" + ySize;
 
             // Casillas
+            int qweCount = 0;
             for (int i = 0; i < ySize; i++)
             {
                 LevelToSpawn += "\n";
                 for (int j = 0; j < xSize; j++)
                 {
-                    LevelToSpawn += (Random.value < 0.65f) ? (Random.value < 0.3f ? "2" : "1") : "0";
+                    string square;
+                    float r = Random.value;
+
+                    if(r < 0.2f)
+                    {
+                        square = "1";
+                    }
+                    else if(r < 0.4f)
+                    {
+                        square = "2";
+                    }
+                    else if(r < 0.6f)
+                    {
+                        switch(qweCount)
+                        {
+                            case 0:
+                                square = "q";
+                                break;
+                            case 1:
+                                square = "w";
+                                break;
+                            case 2:
+                                square = "e";
+                                break;
+                            case 3:
+                                square = "r";
+                                break;
+                            case 4:
+                                square = "t";
+                                break;
+                            default:
+                                square = "0";
+                                break;
+                        }
+                        qweCount++;
+                    }
+                    else
+                    {
+                        square = "0";
+                    }
+
+                    LevelToSpawn += square;
+
+                    // LevelToSpawn += (Random.value < 0.65f) ? (Random.value < 0.3f ? "2" : "1") : "0";
                 }
             }
 
