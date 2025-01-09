@@ -135,15 +135,15 @@ public class Level : MonoBehaviour
                     string square;
                     float r = Random.value;
 
-                    if(r < 0.2f)
+                    if(r < 0.15f)
                     {
                         square = "1";
                     }
-                    else if(r < 0.4f)
+                    else if(r < 0.3f)
                     {
                         square = "2";
                     }
-                    else if(r < 0.6f)
+                    else if(r < 0.45f)
                     {
                         switch(qweCount)
                         {
@@ -167,6 +167,10 @@ public class Level : MonoBehaviour
                                 break;
                         }
                         qweCount++;
+                    }
+                    else if(r < 0.6f)
+                    {
+                        square = "x";
                     }
                     else
                     {
