@@ -11,7 +11,7 @@ public class HClearSquare : Square
         Level.AddSquare(this);
         PressedSquares = new List<Square>();
     }
-
+    
     public override IEnumerator Press()
     {
         var squares = FindObjectsOfType<Square>();
@@ -29,12 +29,12 @@ public class HClearSquare : Square
         return base.Press();
     }
 
-    public override void StopPress(bool _special)
+    public override void StopPress(bool _skipGameAction)
     {
         foreach (Square sq in PressedSquares)
             if (sq != null)
                 sq.StopPress(true);
 
-        base.StopPress();
+        base.StopPress(_skipGameAction);
     }
 }

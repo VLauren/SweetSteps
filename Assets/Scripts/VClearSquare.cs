@@ -29,12 +29,12 @@ public class VClearSquare : Square
         return base.Press();
     }
 
-    public override void StopPress(bool _special)
+    public override void StopPress(bool _skipGameAction)
     {
         foreach (Square sq in PressedSquares)
             if (sq != null)
                 sq.StopPress(true);
 
-        base.StopPress();
+        base.StopPress(_skipGameAction);
     }
 }
