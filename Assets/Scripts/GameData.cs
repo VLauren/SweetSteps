@@ -80,4 +80,15 @@ public static class GameData
         if (CurrentWorld < 1)
             CurrentWorld = 1;
     }
+
+    public static void DebugUnlockAll()
+    {
+        // foreach (var kvp in CompletedDoors)
+        // CompletedDoors[kvp.Key] = new bool[] { true, true, true };
+
+        var keys = new HashSet<int>(CompletedDoors.Keys);
+        foreach(var k in keys)
+            CompletedDoors[k] = new bool[] { true, true, true };
+
+    }
 }

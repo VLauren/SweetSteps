@@ -149,6 +149,12 @@ public class MainChar : MonoBehaviour
             AudioManager.Play("fall_lowRandom", false);
             AudioManager.Play("fall_question_001", false);
         }
+
+        if (keyboard.dKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
+        {
+            print("unlock all");
+            GameData.DebugUnlockAll();
+        }
     }
 
     void OnMove(InputValue _value)
