@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -20,6 +21,30 @@ public static class SaveLoadManager
     {
         SaveSlotData data = GameData.GetSaveData();
         string json = JsonUtility.ToJson(data, true);
-        Debug.Log(json);
+        WriteSlot(SelectedSlot, json);
+    }
+
+    public static bool LoadSlotData(int slot, out SaveSlotData data)
+    {
+        data = new SaveSlotData();
+
+        string json = ReadSlot(slot);
+        if (string.IsNullOrEmpty(json)) 
+            return false;
+
+        data = JsonUtility.FromJson<SaveSlotData>(json);
+        return true;
+    }
+
+    private static string SlotPath(int slot) => Path.Combine(Application.persistentDataPath, "save" + slot + ".json");
+
+    private static void WriteSlot(int slot, string json)
+    {
+        File.WriteAllText(SlotPath(slot), json);
+    }
+
+    private static string ReadSlot(int slot)
+    {
+        return File.Exists(SlotPath(slot)) ? File.ReadAllText(SlotPath(slot)) : null;
     }
 }

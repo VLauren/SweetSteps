@@ -156,9 +156,29 @@ public class MainChar : MonoBehaviour
             GameData.DebugUnlockAll();
         }
 
-        if (keyboard.pKey.wasPressedThisFrame)
+        if (keyboard.iKey.wasPressedThisFrame && !keyboard.ctrlKey.isPressed)
         {
+            SaveLoadManager.SelectedSlot = 0;
             SaveLoadManager.Save();
+        }
+        if (keyboard.jKey.wasPressedThisFrame && !keyboard.ctrlKey.isPressed)
+        {
+            SaveLoadManager.SelectedSlot = 1;
+            SaveLoadManager.Save();
+        }
+        if (keyboard.iKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
+        {
+            SaveSlotData data;
+            if (SaveLoadManager.LoadSlotData(0, out data))
+                GameData.ApplySaveData(data);
+            SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
+        }
+        if (keyboard.jKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
+        {
+            SaveSlotData data;
+            if (SaveLoadManager.LoadSlotData(1, out data))
+                GameData.ApplySaveData(data);
+            SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
         }
     }
 

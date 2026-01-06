@@ -102,8 +102,23 @@ public static class GameData
 
         foreach(var kvp in  CompletedDoors)
             for (int i = 0; i < 3; i++)
-                data.CompletedDoorsValues[kvp.Key - 1 + i] = CompletedDoors[kvp.Key][i];
+                data.CompletedDoorsValues[(kvp.Key - 1) * 3 + i] = CompletedDoors[kvp.Key][i];
 
         return data;
+    }
+
+    public static void ApplySaveData(SaveSlotData data)
+    {
+        CurrentWorld = data.CurrentWorld;
+
+        CompletedDoors.Clear();
+        for (int world = 1; world <= 4; world++)
+        {
+            bool[] completed = new bool[3];
+            for (int door = 0; door < 3; door++)
+                completed[door] = data.CompletedDoorsValues[(world - 1) * 3 + door];
+
+            CompletedDoors[world] = completed;
+        }
     }
 }
