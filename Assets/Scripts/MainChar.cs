@@ -155,6 +155,11 @@ public class MainChar : MonoBehaviour
             print("unlock all");
             GameData.DebugUnlockAll();
         }
+
+        if (keyboard.pKey.wasPressedThisFrame)
+        {
+            SaveLoadManager.Save();
+        }
     }
 
     void OnMove(InputValue _value)

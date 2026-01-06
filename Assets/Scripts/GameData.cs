@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class GameData
@@ -90,5 +91,19 @@ public static class GameData
         foreach(var k in keys)
             CompletedDoors[k] = new bool[] { true, true, true };
 
+    }
+    public static SaveSlotData GetSaveData()
+    {
+        SaveSlotData data = new SaveSlotData()
+        {
+            CompletedDoorsValues = new bool[12],
+            CurrentWorld = CurrentWorld
+        };
+
+        foreach(var kvp in  CompletedDoors)
+            for (int i = 0; i < 3; i++)
+                data.CompletedDoorsValues[kvp.Key - 1 + i] = CompletedDoors[kvp.Key][i];
+
+        return data;
     }
 }
