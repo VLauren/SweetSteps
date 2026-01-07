@@ -111,6 +111,9 @@ public static class GameData
     {
         CurrentWorld = data.CurrentWorld;
 
+        if (CompletedDoors == null)
+            CompletedDoors = new Dictionary<int, bool[]>();
+
         CompletedDoors.Clear();
         for (int world = 1; world <= 4; world++)
         {
