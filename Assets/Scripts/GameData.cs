@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public static class GameData
@@ -71,6 +72,8 @@ public static class GameData
             ShowDoorCompleteAnim = CurrentDoor;
 
         CompletedDoors[_world][_door - 1] = true;
+
+        SaveLoadManager.Save();
     }
 
     public static void SetWorld(int _world)
@@ -80,6 +83,8 @@ public static class GameData
             CurrentWorld = 4;
         if (CurrentWorld < 1)
             CurrentWorld = 1;
+
+        SaveLoadManager.Save();
     }
 
     public static void DebugUnlockAll()
@@ -102,7 +107,9 @@ public static class GameData
 
         foreach(var kvp in  CompletedDoors)
             for (int i = 0; i < 3; i++)
+            {
                 data.CompletedDoorsValues[(kvp.Key - 1) * 3 + i] = CompletedDoors[kvp.Key][i];
+            }
 
         return data;
     }
