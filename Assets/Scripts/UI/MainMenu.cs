@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public Color[] WorldColors = new Color[4];
+    public Color[] DoorCompletionIndicatorColors = new Color[2];
 
     SaveSlotData[] SaveSlotsData = new SaveSlotData[SaveLoadManager.SLOT_COUNT];
 
@@ -27,15 +29,26 @@ public class MainMenu : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            // SaveSlotData data;
-            // if (SaveLoadManager.LoadSlotData(i, out data))
             if (SaveLoadManager.LoadSlotData(i, out SaveSlotsData[i]))
             {
                 transform.Find("Play/Slot" + (i + 1) + "/Game").gameObject.SetActive(true);
                 transform.Find("Play/Slot" + (i + 1) + "/Empty").gameObject.SetActive(false);
+
+                // Numero de mundo y color de fondo
+                int currentWorld = SaveSlotsData[i].CurrentWorld;
+                transform.Find("Play/Slot" + (i + 1) + "/Bg").GetComponent<Image>().color = WorldColors[currentWorld - 1];
+                transform.Find("Play/Slot" + (i + 1) + "/Game/WorldText").GetComponent<Text>().text = "World " + (currentWorld);
+
+                // Indicadores de puertas completas
+                for (int j = 0; j < 12; j++)
+                {
+                    int doorComplete = SaveSlotsData[i].CompletedDoorsValues[j] ? 1 : 0;
+                    transform.Find("Play/Slot" + (i + 1) + "/Game/SquareIndicators/Indicator" + (j + 1)).GetComponent<Image>().color = DoorCompletionIndicatorColors[doorComplete];
+                }
             }
             else
             {
+                // Si no hay partida, mostrar boton de new game
                 transform.Find("Play/Slot" + (i + 1) + "/Game").gameObject.SetActive(false);
                 transform.Find("Play/Slot" + (i + 1) + "/Empty").gameObject.SetActive(true);
             }
