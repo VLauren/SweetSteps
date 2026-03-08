@@ -3465,6 +3465,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1312305131345051879, guid: 902231cd6ffb5df4d9402c8ee0cb3fd3, type: 3}
+      propertyPath: World
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1832065603002094670, guid: 902231cd6ffb5df4d9402c8ee0cb3fd3, type: 3}
       propertyPath: m_Name
       value: HubDoor1
@@ -3621,6 +3625,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1312305131345051879, guid: 902231cd6ffb5df4d9402c8ee0cb3fd3, type: 3}
+      propertyPath: Door
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312305131345051879, guid: 902231cd6ffb5df4d9402c8ee0cb3fd3, type: 3}
+      propertyPath: World
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1832065603002094670, guid: 902231cd6ffb5df4d9402c8ee0cb3fd3, type: 3}
       propertyPath: m_Name
       value: HubDoor3
@@ -4214,6 +4226,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1312305131345051879, guid: 902231cd6ffb5df4d9402c8ee0cb3fd3, type: 3}
+      propertyPath: Door
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312305131345051879, guid: 902231cd6ffb5df4d9402c8ee0cb3fd3, type: 3}
+      propertyPath: World
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1832065603002094670, guid: 902231cd6ffb5df4d9402c8ee0cb3fd3, type: 3}
       propertyPath: m_Name
       value: HubDoor2
