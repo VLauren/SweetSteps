@@ -150,7 +150,7 @@ public class MainChar : MonoBehaviour
             AudioManager.Play("fall_question_001", false);
         }
 
-        if (keyboard.dKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
+        if (keyboard.fKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
         {
             print("unlock all");
             GameData.DebugUnlockAll();

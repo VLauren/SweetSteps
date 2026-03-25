@@ -90,8 +90,14 @@ public class Hub : MonoBehaviour
     {
         GameData.ShowDoorCompleteAnim = 0;
         DoorCompleteIndicator dci = _doorTrigger.transform.parent.Find("DoorCompleteIndicator").GetComponent<DoorCompleteIndicator>();
+        DoorCompleteIndicator dciFloor = null;
 
-        // TODO añadir efecto para puerta también
+        var indicators = FindObjectsOfType<DoorCompleteIndicator>();
+        foreach (var indicator in indicators)
+        {
+            if(indicator.Door == dci.Door && indicator.World == dci.World && indicator != dci)
+                dciFloor = indicator;
+        }
 
         yield return null;
 
@@ -107,6 +113,20 @@ public class Hub : MonoBehaviour
         AudioManager.Play("unlock_confirmation_002", false);
 
         yield return new WaitForSeconds(.5f);
+
+        PlayCamera cam = FindObjectOfType<PlayCamera>();
+
+        if (dciFloor != null)
+        {
+            print("floor pos: " + dciFloor.transform.position);
+            cam.ForceTargetPosition(dciFloor.transform.position);
+            yield return new WaitForSeconds(1);
+
+            cam.ResetTargetPosition();
+
+            yield return new WaitForSeconds(.5f);
+        }
+
 
         MainChar.EnableControl();
     }

@@ -11,6 +11,8 @@ public class PlayCamera : MonoBehaviour
     [SerializeField] Vector3 Offset;
 
     Vector3 CamVelocity;
+    bool ForcePosition;
+    Vector3 ForcePositionTarget;
 
     private void Start()
     {
@@ -32,8 +34,11 @@ public class PlayCamera : MonoBehaviour
 
     void UpdateCameraPosition(float _dampTime)
     {
-
-        if (Level.Instance != null)
+        if (ForcePosition)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, ForcePositionTarget, ref CamVelocity, _dampTime);
+        }
+        else if (Level.Instance != null)
         {
             Vector3 charFloorPos = MainChar.Instance.transform.position - Level.Instance.LevelCenter;
             charFloorPos.y = 0;
@@ -45,5 +50,16 @@ public class PlayCamera : MonoBehaviour
         {
             transform.position = Vector3.SmoothDamp(transform.position, MainChar.Instance.transform.position + Offset, ref CamVelocity, _dampTime);
         }
+    }
+
+    public void ForceTargetPosition(Vector3 targetPosition)
+    {
+        ForcePosition = true;
+        ForcePositionTarget = targetPosition + Offset;
+    }
+
+    public void ResetTargetPosition()
+    {
+        ForcePosition = false;
     }
 }
