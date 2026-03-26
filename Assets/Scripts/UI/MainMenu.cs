@@ -83,7 +83,14 @@ public class MainMenu : MonoBehaviour
         GameData.ApplySaveData(SaveSlotsData[slot]);
 
         int currentWorld = SaveSlotsData[slot].CurrentWorld;
-        Debug.Log("CURRENT W " + currentWorld);
         SceneManager.LoadScene("HubScene" + currentWorld);
+    }
+
+    public void DeleteSave(int slot)
+    {
+        SaveLoadManager.SelectedSlot = slot;
+        SaveLoadManager.DeleteSlot(slot);
+
+        ShowPlayScreen();
     }
 }

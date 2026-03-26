@@ -36,6 +36,18 @@ public static class SaveLoadManager
         return true;
     }
 
+    public static bool DeleteSlot(int slot)
+    {
+        string path = SlotPath(slot);
+
+        if(!File.Exists(path))
+            return false;
+
+        File.Delete(path);
+
+        return true;
+    }
+
     private static string SlotPath(int slot) => Path.Combine(Application.persistentDataPath, "save" + slot + ".json");
 
     private static void WriteSlot(int slot, string json)
