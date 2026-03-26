@@ -104,12 +104,14 @@ public class Hub : MonoBehaviour
         dci.GetComponent<Renderer>().material = dci.OGMaterial;
         MainChar.DisableControl();
 
+        if (dciFloor != null)
+            dciFloor.GetComponent<Renderer>().material = dciFloor.OGMaterial;
+
         yield return new WaitForSeconds(1);
 
+        // Efecto indicador puerta
         Effects.SpawnEffect(2, dci.transform.position);
-
         dci.GetComponent<Renderer>().material = dci.CompletedMaterial;
-
         AudioManager.Play("unlock_confirmation_002", false);
 
         yield return new WaitForSeconds(.5f);
@@ -118,13 +120,20 @@ public class Hub : MonoBehaviour
 
         if (dciFloor != null)
         {
-            print("floor pos: " + dciFloor.transform.position);
             cam.ForceTargetPosition(dciFloor.transform.position);
-            yield return new WaitForSeconds(1);
+
+            yield return new WaitForSeconds(1f);
+
+            // Efecto indicador suelo
+            Effects.SpawnEffect(2, dciFloor.transform.position);
+            dciFloor.GetComponent<Renderer>().material = dciFloor.CompletedMaterial;
+            AudioManager.Play("unlock_confirmation_002", false);
+
+            yield return new WaitForSeconds(0.7f);
 
             cam.ResetTargetPosition();
 
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.3f);
         }
 
 
