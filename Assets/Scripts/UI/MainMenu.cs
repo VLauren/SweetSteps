@@ -49,6 +49,7 @@ public class MainMenu : MonoBehaviour
             else
             {
                 // Si no hay partida, mostrar boton de new game
+                transform.Find("Play/Slot" + (i + 1) + "/Bg").GetComponent<Image>().color = new Color(0, 0, 0, 0.11f);
                 transform.Find("Play/Slot" + (i + 1) + "/Game").gameObject.SetActive(false);
                 transform.Find("Play/Slot" + (i + 1) + "/Empty").gameObject.SetActive(true);
             }
