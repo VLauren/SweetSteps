@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15425885, g: 0.5176471, b: 0.42873293, a: 0.5058824}
+  m_Color: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 0.5058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -159,7 +159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '7/10
+  m_Text: '7 / 10
 
 '
 --- !u!1 &2878990870089028597

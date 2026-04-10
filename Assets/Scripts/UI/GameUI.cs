@@ -16,7 +16,7 @@ public class GameUI : MonoBehaviour
         {
             int level = GameData.CurrentLevel;
             int total = LevelsData.DoorLevelCount(GameData.CurrentWorld, GameData.CurrentDoor);
-            transform.Find("LevelNumber").GetComponent<Text>().text = level + "/" + total;
+            transform.Find("LevelNumber").GetComponent<Text>().text = level + " / " + total;
         }
     }
 }
