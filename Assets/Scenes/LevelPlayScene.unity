@@ -494,6 +494,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5606770498218178640, guid: fefbe9b50df2af84eb235d166ff8fac8, type: 3}
+      propertyPath: BGColors.Array.data[2].b
+      value: 0.7803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606770498218178640, guid: fefbe9b50df2af84eb235d166ff8fac8, type: 3}
+      propertyPath: BGColors.Array.data[2].g
+      value: 0.48235297
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606770498218178640, guid: fefbe9b50df2af84eb235d166ff8fac8, type: 3}
+      propertyPath: BGColors.Array.data[2].r
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606770498218178640, guid: fefbe9b50df2af84eb235d166ff8fac8, type: 3}
+      propertyPath: BGColors.Array.data[3].b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606770498218178640, guid: fefbe9b50df2af84eb235d166ff8fac8, type: 3}
+      propertyPath: BGColors.Array.data[3].g
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606770498218178640, guid: fefbe9b50df2af84eb235d166ff8fac8, type: 3}
+      propertyPath: BGColors.Array.data[3].r
+      value: 0.078431375
+      objectReference: {fileID: 0}
     - target: {fileID: 5606770498218178641, guid: fefbe9b50df2af84eb235d166ff8fac8, type: 3}
       propertyPath: m_Name
       value: Level
