@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HubScene4.unity
     guid: d0ef8b2a765116c4c970c6c59f50ca4d
+  - enabled: 1
+    path: Assets/Scenes/GameEndScene.unity
+    guid: 1117c2234ad0f7b4395dff3f8677f7cd
   m_configObjects: {}

@@ -104,6 +104,9 @@ public class Hub : MonoBehaviour
         dci.GetComponent<Renderer>().material = dci.OGMaterial;
         MainChar.DisableControl();
 
+        if (GameData.IsDoorCompleted(4, 3))
+            FindObjectOfType<GameEndTrigger>().transform.Find("Model").GetComponent<Renderer>().enabled = false;
+
         if (dciFloor != null)
             dciFloor.GetComponent<Renderer>().material = dciFloor.OGMaterial;
 
@@ -128,6 +131,10 @@ public class Hub : MonoBehaviour
             Effects.SpawnEffect(2, dciFloor.transform.position);
             dciFloor.GetComponent<Renderer>().material = dciFloor.CompletedMaterial;
             AudioManager.Play("unlock_confirmation_002", false);
+
+            // Fin de juego
+            if (GameData.IsDoorCompleted(4, 3))
+                FindObjectOfType<GameEndTrigger>().transform.Find("Model").GetComponent<Renderer>().enabled = true;
 
             yield return new WaitForSeconds(0.7f);
 
