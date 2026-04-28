@@ -1399,6 +1399,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 567685d4eb4ac584d86be983b86a0f73, type: 3}
+--- !u!1 &513837343154319724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 567685d4eb4ac584d86be983b86a0f73, type: 3}
+  m_PrefabInstance: {fileID: 855945091985312829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2143858722684385185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513837343154319724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068b02ef8fb9eba42bcb07cf3c6a9c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 1
+  OscSpeed: 1
+  Oscilation: 1
 --- !u!4 &894620916451601366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 567685d4eb4ac584d86be983b86a0f73, type: 3}
@@ -1723,6 +1743,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 567685d4eb4ac584d86be983b86a0f73, type: 3}
+--- !u!1 &8499668825115487824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 567685d4eb4ac584d86be983b86a0f73, type: 3}
+  m_PrefabInstance: {fileID: 8734038864440939265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5438151576075959525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8499668825115487824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068b02ef8fb9eba42bcb07cf3c6a9c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 1
+  OscSpeed: 1
+  Oscilation: 1
 --- !u!4 &9133075125456352490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 567685d4eb4ac584d86be983b86a0f73, type: 3}
