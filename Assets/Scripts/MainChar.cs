@@ -192,6 +192,14 @@ public class MainChar : MonoBehaviour
         JumpPressed = true;
     }
 
+    void OnPause()
+    {
+        if (Time.timeScale > 0)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+    }
+
     public static void DisableControl()
     {
         ControlEnabled = false;

@@ -103,8 +103,6 @@ public class Level : MonoBehaviour
     private void Update()
     {
         var keyboard = Keyboard.current;
-        if (keyboard.escapeKey.wasPressedThisFrame)
-            SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
 
         // DEBUG
         if (keyboard.nKey.wasPressedThisFrame && keyboard.ctrlKey.isPressed)
