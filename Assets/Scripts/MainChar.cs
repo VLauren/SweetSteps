@@ -194,10 +194,18 @@ public class MainChar : MonoBehaviour
 
     void OnPause()
     {
+        GameUI gameUI = FindObjectOfType<GameUI>();
         if (Time.timeScale > 0)
+        {
             Time.timeScale = 0;
+            gameUI.ShowPauseMenu();
+        }
         else
+        {
             Time.timeScale = 1;
+            gameUI.HidePauseMenu();
+        }
+
     }
 
     public static void DisableControl()

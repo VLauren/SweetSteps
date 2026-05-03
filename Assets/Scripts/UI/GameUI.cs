@@ -19,4 +19,14 @@ public class GameUI : MonoBehaviour
             transform.Find("LevelNumber").GetComponent<Text>().text = level + " / " + total;
         }
     }
+
+    public void ShowPauseMenu()
+    {
+        transform.Find("PauseMenu").gameObject.SetActive(true);
+    }
+
+    public void HidePauseMenu()
+    {
+        transform.Find("PauseMenu").gameObject.SetActive(false);
+    }
 }
