@@ -27,6 +27,19 @@ public class GameUI : MonoBehaviour
 
     public void HidePauseMenu()
     {
+        Time.timeScale = 1;
         transform.Find("PauseMenu").gameObject.SetActive(false);
+    }
+
+    public void BackToHub()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
+    }
+
+    public void BackToMain()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 }
