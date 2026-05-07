@@ -194,6 +194,10 @@ public class MainChar : MonoBehaviour
 
     void OnPause()
     {
+        // No se puede pausar si estoy en la escena de fin de puerta
+        if (SceneManager.GetActiveScene().name == "DoorEndScene")
+            return;
+
         GameUI gameUI = FindObjectOfType<GameUI>();
         if (Time.timeScale > 0)
         {
