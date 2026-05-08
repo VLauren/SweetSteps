@@ -23,6 +23,18 @@ public class GameUI : MonoBehaviour
     public void ShowPauseMenu()
     {
         transform.Find("PauseMenu").gameObject.SetActive(true);
+
+        if (SceneManager.GetActiveScene().name.Equals("LevelPlayScene"))
+        {
+            transform.Find("PauseMenu/LevelPause").gameObject.SetActive(true);
+            transform.Find("PauseMenu/HubPause").gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.Find("PauseMenu/LevelPause").gameObject.SetActive(false);
+            transform.Find("PauseMenu/HubPause").gameObject.SetActive(true);
+
+        }
     }
 
     public void HidePauseMenu()
@@ -35,6 +47,7 @@ public class GameUI : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("HubScene" + GameData.CurrentWorld);
+        print("ews");
     }
 
     public void BackToMain()
