@@ -20,12 +20,14 @@ public class MainMenu : MonoBehaviour
     {
         transform.Find("Title").gameObject.SetActive(true);
         transform.Find("Play").gameObject.SetActive(false);
+        transform.Find("Credits").gameObject.SetActive(false);
     }
 
     public void ShowPlayScreen()
     {
         transform.Find("Title").gameObject.SetActive(false);
         transform.Find("Play").gameObject.SetActive(true);
+        transform.Find("Credits").gameObject.SetActive(false);
 
         for (int i = 0; i < 3; i++)
         {
@@ -54,6 +56,12 @@ public class MainMenu : MonoBehaviour
                 transform.Find("Play/Slot" + (i + 1) + "/Empty").gameObject.SetActive(true);
             }
         }
+    }
+    public void ShowCreditsScreen()
+    {
+        transform.Find("Title").gameObject.SetActive(false);
+        transform.Find("Play").gameObject.SetActive(false);
+        transform.Find("Credits").gameObject.SetActive(true);
     }
 
     public void ExitGame()
